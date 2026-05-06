@@ -263,17 +263,17 @@ The Lily system should stay small, readable, and token-efficient.
 
 Built so far:
 
-- shared workflow files
-- Claude Code install script
+- shared workflow files ✅
+- all 16 Claude Code skill wrappers ✅
+- Claude Code install script ✅
 - starter adapters for Codex and Gemini
 - starter project templates
 
 Still to build next:
 
-- Claude Code skill wrappers
 - richer Codex adapter
 - richer Gemini adapter
 - fuller project templates for `.planning/`
 - optional install/sync commands for each adapter
 
-The next priority is Claude Code skills, because those provide the daily shortcut layer over the workflow files.
+The next priority is enriching adapters for Codex and Gemini, then working on project templates.
