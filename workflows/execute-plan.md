@@ -6,11 +6,12 @@ Goal: execute one existing plan safely.
 
 Read:
 
-1. `CLAUDE.md`
+1. project instruction file: `CLAUDE.md`, `AGENTS.md`, or equivalent
 2. `.planning/STATE.md`
 3. the target `*-PLAN.md`
-4. files listed in the plan's `read_first` section
-5. relevant existing source files
+4. matching `*-PLAN-CHECK.md`, if present
+5. files listed in the plan's `read_first` section
+6. relevant existing source files
 
 ## Execution Rules
 
@@ -20,7 +21,9 @@ Read:
 4. Do not rewrite unrelated code.
 5. Do not delete user work.
 6. Verify with tests, lint, or manual checks when available.
-7. If the plan is wrong or stale, stop and explain the mismatch.
+7. If a matching `*-PLAN-CHECK.md` has verdict `FAIL`, stop and ask for plan revision before executing.
+8. If the plan is wrong or stale, stop and explain the mismatch.
+9. Apply any `PASS WITH NOTES` executor guidance from `*-PLAN-CHECK.md`.
 
 ## After Execution
 
