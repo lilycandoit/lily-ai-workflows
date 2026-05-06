@@ -9,7 +9,7 @@ Read:
 1. project instruction file: `CLAUDE.md`, `AGENTS.md`, or equivalent
 2. `.planning/STATE.md`
 3. the target `*-PLAN.md`
-4. matching `*-PLAN-CHECK.md`, if present
+4. matching `*-PLAN-CHECK.md`, if present. Plan checks are optional, so absence of this file is not a blocker.
 5. files listed in the plan's `read_first` section
 6. relevant existing source files
 
@@ -21,9 +21,10 @@ Read:
 4. Do not rewrite unrelated code.
 5. Do not delete user work.
 6. Verify with tests, lint, or manual checks when available.
-7. If a matching `*-PLAN-CHECK.md` has verdict `FAIL`, stop and ask for plan revision before executing.
-8. If the plan is wrong or stale, stop and explain the mismatch.
-9. Apply any `PASS WITH NOTES` executor guidance from `*-PLAN-CHECK.md`.
+7. If no matching `*-PLAN-CHECK.md` exists, continue execution and mention in the final response that no persisted plan check was found.
+8. If a matching `*-PLAN-CHECK.md` has verdict `FAIL`, stop and ask for plan revision before executing.
+9. If the plan is wrong or stale, stop and explain the mismatch.
+10. Apply any `PASS WITH NOTES` executor guidance from `*-PLAN-CHECK.md`.
 
 ## After Execution
 
