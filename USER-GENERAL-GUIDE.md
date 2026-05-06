@@ -261,21 +261,19 @@ The Lily system should stay small, readable, and token-efficient.
 
 ## Current Gaps
 
-Still to build:
+Built so far:
 
-- missing workflow files:
-  - `next-phase.md`
-  - `recap.md`
-  - `create-plan-deep.md`
-  - `plan-check.md`
-  - `verify-work.md`
-  - `quick.md`
-  - `backlog.md`
-  - `debug.md`
-  - `review.md`
-  - `ship.md`
+- shared workflow files
+- Claude Code install script
+- starter adapters for Codex and Gemini
+- starter project templates
+
+Still to build next:
+
 - Claude Code skill wrappers
-- Codex adapter
-- Gemini adapter
-- project templates
-- install script
+- richer Codex adapter
+- richer Gemini adapter
+- fuller project templates for `.planning/`
+- optional install/sync commands for each adapter
+
+The next priority is Claude Code skills, because those provide the daily shortcut layer over the workflow files.
