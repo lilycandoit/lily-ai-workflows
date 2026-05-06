@@ -113,6 +113,27 @@ Planned mappings:
 - `cc-bootstrap` -> `bootstrap-project.md`
 - `cc-adopt` -> `adopt-existing-project.md`
 
+## Codex Skill Shortcut Map
+
+Codex skill wrappers should stay small. Each skill points to one workflow file installed at `~/.codex/lily-workflows/`.
+
+- `codex-progress` -> `progress-check.md`
+- `codex-recap` -> `recap.md`
+- `codex-next` -> `next-phase.md`
+- `codex-plan` -> `create-plan.md`
+- `codex-deep-plan` -> `create-plan-deep.md`
+- `codex-plan-check` -> `plan-check.md`
+- `codex-execute` -> `execute-plan.md`
+- `codex-verify` -> `verify-work.md`
+- `codex-commit` -> `git-checkpoint.md`
+- `codex-quick` -> `quick.md`
+- `codex-backlog` -> `backlog.md`
+- `codex-debug` -> `debug.md`
+- `codex-review` -> `review.md`
+- `codex-ship` -> `ship.md`
+- `codex-bootstrap` -> `bootstrap-project.md`
+- `codex-adopt` -> `adopt-existing-project.md`
+
 ## Normal Development Flow
 
 Typical flow:
@@ -266,14 +287,15 @@ Built so far:
 - shared workflow files ✅
 - all 16 Claude Code skill wrappers ✅
 - Claude Code install script ✅
-- starter adapters for Codex and Gemini
+- all 16 Codex skill wrappers ✅
+- Codex install script ✅
+- starter Gemini adapter
 - starter project templates
 
 Still to build next:
 
-- richer Codex adapter
 - richer Gemini adapter
 - fuller project templates for `.planning/`
 - optional install/sync commands for each adapter
 
-The next priority is enriching adapters for Codex and Gemini, then working on project templates.
+The next priority is enriching the Gemini adapter, then working on fuller project templates.

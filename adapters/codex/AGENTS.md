@@ -2,9 +2,9 @@
 
 This project uses Lily AI Workflows.
 
-Shared workflows live in:
+Shared workflows are installed for Codex at:
 
-- `workflows/`
+- `~/.codex/lily-workflows/`
 
 Project-specific memory lives in:
 
@@ -17,5 +17,14 @@ Core rule:
 - read project instructions
 - read `.planning/STATE.md`
 - read `.planning/ROADMAP.md`
-- follow the relevant workflow file
+- follow the relevant workflow file from `~/.codex/lily-workflows/`
 - keep project truth in `.planning/`
+
+Common Codex skills:
+
+- `codex-progress`
+- `codex-next`
+- `codex-plan`
+- `codex-execute`
+- `codex-verify`
+- `codex-commit`
