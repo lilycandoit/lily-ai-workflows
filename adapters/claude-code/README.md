@@ -10,32 +10,32 @@ Each skill corresponds to one workflow file and provides a shortcut to commonly-
 
 **Core workflow shortcuts:**
 
-- `lily-progress` → progress check
-- `lily-recap` → project summary
-- `lily-next` → move to next phase
-- `lily-plan` → create focused plan
-- `lily-deep-plan` → create deep plan for risky work
-- `lily-plan-check` → review plan before execution
-- `lily-execute` → execute one plan
-- `lily-verify` → verify completed work
-- `lily-commit` → create local git checkpoint
+- `cc-progress` → progress check
+- `cc-recap` → project summary
+- `cc-next` → move to next phase
+- `cc-plan` → create focused plan
+- `cc-deep-plan` → create deep plan for risky work
+- `cc-plan-check` → review plan before execution
+- `cc-execute` → execute one plan
+- `cc-verify` → verify completed work
+- `cc-commit` → create local git checkpoint
 
 ### Utility Workflows
 
 **Supporting tools:**
 
-- `lily-quick` → small changes without full planning
-- `lily-backlog` → capture ideas and bugs
-- `lily-debug` → structured bug investigation
-- `lily-review` → code or planning review
-- `lily-ship` → publish work (push, PR, release)
+- `cc-quick` → small changes without full planning
+- `cc-backlog` → capture ideas and bugs
+- `cc-debug` → structured bug investigation
+- `cc-review` → code or planning review
+- `cc-ship` → publish work (push, PR, release)
 
 ### Project Lifecycle
 
 **Project setup and adoption:**
 
-- `lily-bootstrap` → start new project
-- `lily-adopt` → bring existing project into system
+- `cc-bootstrap` → start new project
+- `cc-adopt` → bring existing project into system
 
 ## Installation
 
@@ -45,14 +45,14 @@ Copy this folder to Claude Code's skills directory:
 cp -r ~/Build/lily-ai-workflows/adapters/claude-code/skills ~/.claude/skills/lily-workflows
 ```
 
-Or manually copy individual `lily-*.md` files to `~/.claude/skills/`.
+Or manually copy individual `cc-*.md` files to `~/.claude/skills/`.
 
 ## Usage
 
 In Claude Code, invoke a skill by name:
 
 ```
-lily-progress
+cc-progress
 ```
 
 Each skill will:
@@ -78,40 +78,40 @@ The skill acts as a shortcut. The real work happens in the workflow files, which
 ```
 adapters/claude-code/skills/
 ├── README.md (this file)
-├── lily-progress.md
-├── lily-recap.md
-├── lily-next.md
-├── lily-plan.md
-├── lily-deep-plan.md
-├── lily-plan-check.md
-├── lily-execute.md
-├── lily-verify.md
-├── lily-commit.md
-├── lily-quick.md
-├── lily-backlog.md
-├── lily-debug.md
-├── lily-review.md
-├── lily-ship.md
-├── lily-bootstrap.md
-└── lily-adopt.md
+├── cc-progress.md
+├── cc-recap.md
+├── cc-next.md
+├── cc-plan.md
+├── cc-deep-plan.md
+├── cc-plan-check.md
+├── cc-execute.md
+├── cc-verify.md
+├── cc-commit.md
+├── cc-quick.md
+├── cc-backlog.md
+├── cc-debug.md
+├── cc-review.md
+├── cc-ship.md
+├── cc-bootstrap.md
+└── cc-adopt.md
 ```
 
 ## Daily Workflow
 
 Typical project workflow using skills:
 
-1. `lily-progress` — check current status
-2. `lily-next` — move to next phase if ready
-3. `lily-plan` — create or `lily-deep-plan` for risky work
-4. `lily-plan-check` — review before executing
-5. `lily-execute` — implement the plan
-6. `lily-verify` — verify work meets acceptance criteria
-7. `lily-commit` — save locally in git
-8. `lily-recap` — summarize for next session
+1. `cc-progress` — check current status
+2. `cc-next` — move to next phase if ready
+3. `cc-plan` — create or `cc-deep-plan` for risky work
+4. `cc-plan-check` — review before executing
+5. `cc-execute` — implement the plan
+6. `cc-verify` — verify work meets acceptance criteria
+7. `cc-commit` — save locally in git
+8. `cc-recap` — summarize for next session
 
-Use `lily-quick`, `lily-debug`, `lily-backlog` as needed for side tasks.
+Use `cc-quick`, `cc-debug`, `cc-backlog` as needed for side tasks.
 
-Only use `lily-ship` when explicitly asked to push/publish.
+Only use `cc-ship` when explicitly asked to push/publish.
 
 ## Relationship to Workflows
 

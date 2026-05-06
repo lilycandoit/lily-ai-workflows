@@ -9,8 +9,10 @@ mkdir -p "$HOME/.claude/skills"
 rsync -a "$ROOT/workflows/" "$HOME/.claude/lily-workflows/"
 
 if [ -d "$ROOT/adapters/claude-code/skills" ]; then
-  # Remove obsolete flat Lily skill files from older installs. Keep non-Lily skills such as GSD intact.
+  # Remove obsolete Lily/Claude Code skill aliases from older installs. Keep non-Lily skills such as GSD intact.
   find "$HOME/.claude/skills" -maxdepth 1 -type f -name 'lily-*.md' -delete
+  find "$HOME/.claude/skills" -maxdepth 1 -type d -name 'lily-*' -exec rm -rf {} +
+  find "$HOME/.claude/skills" -maxdepth 1 -type d -name 'cc-*' -exec rm -rf {} +
   rsync -a "$ROOT/adapters/claude-code/skills/" "$HOME/.claude/skills/"
 fi
 

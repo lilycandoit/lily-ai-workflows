@@ -4,22 +4,22 @@ These are thin Claude Code skill wrappers. Each skill lives in a folder with a `
 
 ## Skills
 
-- `lily-progress` -> `progress-check.md`
-- `lily-recap` -> `recap.md`
-- `lily-next` -> `next-phase.md`
-- `lily-plan` -> `create-plan.md`
-- `lily-deep-plan` -> `create-plan-deep.md`
-- `lily-plan-check` -> `plan-check.md`
-- `lily-execute` -> `execute-plan.md`
-- `lily-verify` -> `verify-work.md`
-- `lily-commit` -> `git-checkpoint.md`
-- `lily-quick` -> `quick.md`
-- `lily-backlog` -> `backlog.md`
-- `lily-debug` -> `debug.md`
-- `lily-review` -> `review.md`
-- `lily-ship` -> `ship.md`
-- `lily-bootstrap` -> `bootstrap-project.md`
-- `lily-adopt` -> `adopt-existing-project.md`
+- `cc-progress` -> `progress-check.md`
+- `cc-recap` -> `recap.md`
+- `cc-next` -> `next-phase.md`
+- `cc-plan` -> `create-plan.md`
+- `cc-deep-plan` -> `create-plan-deep.md`
+- `cc-plan-check` -> `plan-check.md`
+- `cc-execute` -> `execute-plan.md`
+- `cc-verify` -> `verify-work.md`
+- `cc-commit` -> `git-checkpoint.md`
+- `cc-quick` -> `quick.md`
+- `cc-backlog` -> `backlog.md`
+- `cc-debug` -> `debug.md`
+- `cc-review` -> `review.md`
+- `cc-ship` -> `ship.md`
+- `cc-bootstrap` -> `bootstrap-project.md`
+- `cc-adopt` -> `adopt-existing-project.md`
 
 ## Install
 

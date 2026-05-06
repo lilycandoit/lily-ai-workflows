@@ -96,22 +96,22 @@ Claude Code skill wrappers should stay small. Each skill points to one workflow 
 
 Planned mappings:
 
-- `lily-progress` -> `progress-check.md`
-- `lily-recap` -> `recap.md`
-- `lily-next` -> `next-phase.md`
-- `lily-plan` -> `create-plan.md`
-- `lily-deep-plan` -> `create-plan-deep.md`
-- `lily-plan-check` -> `plan-check.md`
-- `lily-execute` -> `execute-plan.md`
-- `lily-verify` -> `verify-work.md`
-- `lily-commit` -> `git-checkpoint.md`
-- `lily-quick` -> `quick.md`
-- `lily-backlog` -> `backlog.md`
-- `lily-debug` -> `debug.md`
-- `lily-review` -> `review.md`
-- `lily-ship` -> `ship.md`
-- `lily-bootstrap` -> `bootstrap-project.md`
-- `lily-adopt` -> `adopt-existing-project.md`
+- `cc-progress` -> `progress-check.md`
+- `cc-recap` -> `recap.md`
+- `cc-next` -> `next-phase.md`
+- `cc-plan` -> `create-plan.md`
+- `cc-deep-plan` -> `create-plan-deep.md`
+- `cc-plan-check` -> `plan-check.md`
+- `cc-execute` -> `execute-plan.md`
+- `cc-verify` -> `verify-work.md`
+- `cc-commit` -> `git-checkpoint.md`
+- `cc-quick` -> `quick.md`
+- `cc-backlog` -> `backlog.md`
+- `cc-debug` -> `debug.md`
+- `cc-review` -> `review.md`
+- `cc-ship` -> `ship.md`
+- `cc-bootstrap` -> `bootstrap-project.md`
+- `cc-adopt` -> `adopt-existing-project.md`
 
 ## Normal Development Flow
 
@@ -129,14 +129,14 @@ Typical flow:
 
 Shortcut version after skills exist:
 
-- `lily-progress`
-- `lily-next`
-- `lily-plan`
-- `lily-plan-check`
-- `lily-execute`
-- `lily-verify`
-- `lily-commit`
-- `lily-recap`
+- `cc-progress`
+- `cc-next`
+- `cc-plan`
+- `cc-plan-check`
+- `cc-execute`
+- `cc-verify`
+- `cc-commit`
+- `cc-recap`
 
 ## New Project Flow
 

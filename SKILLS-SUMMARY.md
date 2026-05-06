@@ -2,11 +2,11 @@
 
 ## Status
 
-Claude Code Lily skill wrappers are now folder-based and match the GSD-style skill layout:
+Claude Code Claude Code skill wrappers are now folder-based and match the GSD-style skill layout:
 
 ```text
-~/.claude/skills/lily-progress/SKILL.md
-~/.claude/skills/lily-execute/SKILL.md
+~/.claude/skills/cc-progress/SKILL.md
+~/.claude/skills/cc-execute/SKILL.md
 ...
 ```
 
@@ -24,22 +24,22 @@ Each installed runtime skill lives in:
 
 ## Created Skills
 
-- `lily-progress` -> `progress-check.md`
-- `lily-recap` -> `recap.md`
-- `lily-next` -> `next-phase.md`
-- `lily-plan` -> `create-plan.md`
-- `lily-deep-plan` -> `create-plan-deep.md`
-- `lily-plan-check` -> `plan-check.md`
-- `lily-execute` -> `execute-plan.md`
-- `lily-verify` -> `verify-work.md`
-- `lily-commit` -> `git-checkpoint.md`
-- `lily-quick` -> `quick.md`
-- `lily-backlog` -> `backlog.md`
-- `lily-debug` -> `debug.md`
-- `lily-review` -> `review.md`
-- `lily-ship` -> `ship.md`
-- `lily-bootstrap` -> `bootstrap-project.md`
-- `lily-adopt` -> `adopt-existing-project.md`
+- `cc-progress` -> `progress-check.md`
+- `cc-recap` -> `recap.md`
+- `cc-next` -> `next-phase.md`
+- `cc-plan` -> `create-plan.md`
+- `cc-deep-plan` -> `create-plan-deep.md`
+- `cc-plan-check` -> `plan-check.md`
+- `cc-execute` -> `execute-plan.md`
+- `cc-verify` -> `verify-work.md`
+- `cc-commit` -> `git-checkpoint.md`
+- `cc-quick` -> `quick.md`
+- `cc-backlog` -> `backlog.md`
+- `cc-debug` -> `debug.md`
+- `cc-review` -> `review.md`
+- `cc-ship` -> `ship.md`
+- `cc-bootstrap` -> `bootstrap-project.md`
+- `cc-adopt` -> `adopt-existing-project.md`
 
 ## Skill Contract
 
@@ -64,13 +64,13 @@ The installer copies:
 - `workflows/` -> `~/.claude/lily-workflows/`
 - `adapters/claude-code/skills/` -> `~/.claude/skills/`
 
-The installer also removes obsolete flat Lily skill files matching:
+The installer also removes obsolete flat Claude Code skill files matching:
 
 ```text
-~/.claude/skills/lily-*.md
+~/.claude/skills/cc-*.md
 ```
 
-It does not remove non-Lily skills such as GSD.
+It does not remove non-Claude Code skills such as GSD.
 
 ## Validation
 
@@ -80,4 +80,4 @@ Current validation passed:
 - every skill is folder-based
 - every skill has frontmatter
 - every skill references an existing workflow file
-- no stale flat Lily skill files are installed
+- no stale flat Claude Code skill files are installed
