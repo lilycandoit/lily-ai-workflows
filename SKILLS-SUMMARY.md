@@ -1,28 +1,47 @@
-# Claude Code Skills Summary
+# Skills Summary
 
 ## Status
 
-Claude Code Claude Code skill wrappers are now folder-based and match the GSD-style skill layout:
+The workflow repo now has skill adapters for:
 
-```text
-~/.claude/skills/cc-progress/SKILL.md
-~/.claude/skills/cc-execute/SKILL.md
-...
-```
+- Claude Code: `cc-*`
+- Codex: `codex-*`
 
-Each source skill lives in:
+Shared workflow files stay in `workflows/`. AI-specific skills are thin wrappers that point to those shared workflows after installation.
+
+Gemini support is not implemented yet.
+
+## Claude Code Skills
+
+### Source Location
 
 ```text
 adapters/claude-code/skills/<skill-name>/SKILL.md
 ```
 
-Each installed runtime skill lives in:
+### Installed Location
 
 ```text
 ~/.claude/skills/<skill-name>/SKILL.md
 ```
 
-## Created Skills
+### Runtime Workflow Location
+
+```text
+~/.claude/lily-workflows/<workflow>.md
+```
+
+### Skill Contract
+
+Each Claude Code `SKILL.md` includes:
+
+- YAML frontmatter with `name`, `description`, optional `argument-hint`, and `allowed-tools`
+- `<objective>` explaining the shortcut's purpose
+- `<execution_context>` pointing to one file in `~/.claude/lily-workflows/`
+- `<context>` passing `$ARGUMENTS`
+- `<process>` instructing Claude Code to execute the workflow end-to-end
+
+### Shortcuts
 
 - `cc-progress` -> `progress-check.md`
 - `cc-recap` -> `recap.md`
@@ -41,19 +60,7 @@ Each installed runtime skill lives in:
 - `cc-bootstrap` -> `bootstrap-project.md`
 - `cc-adopt` -> `adopt-existing-project.md`
 
-## Skill Contract
-
-Each `SKILL.md` includes:
-
-- YAML frontmatter with `name`, `description`, optional `argument-hint`, and `allowed-tools`
-- `<objective>` explaining the shortcut's purpose
-- `<execution_context>` pointing to one file in `~/.claude/lily-workflows/`
-- `<context>` passing `$ARGUMENTS`
-- `<process>` instructing Claude Code to execute the workflow end-to-end
-
-## Install
-
-Run from this repo:
+### Install
 
 ```bash
 ./install-claude-code.sh
@@ -64,20 +71,85 @@ The installer copies:
 - `workflows/` -> `~/.claude/lily-workflows/`
 - `adapters/claude-code/skills/` -> `~/.claude/skills/`
 
-The installer also removes obsolete flat Claude Code skill files matching:
+It removes obsolete Lily/Claude Code aliases matching `lily-*`, `lily-*.md`, and `cc-*` before reinstalling current `cc-*` skills. It does not remove non-Lily skills such as GSD.
+
+## Codex Skills
+
+### Source Location
 
 ```text
-~/.claude/skills/cc-*.md
+adapters/codex/skills/<skill-name>/SKILL.md
 ```
 
-It does not remove non-Claude Code skills such as GSD.
+### Installed Location
 
-## Validation
+```text
+~/.codex/skills/<skill-name>/SKILL.md
+```
+
+### Runtime Workflow Location
+
+```text
+~/.codex/lily-workflows/<workflow>.md
+```
+
+### Skill Contract
+
+Each Codex `SKILL.md` follows Codex skill-creator guidance:
+
+- folder name matches skill `name`
+- YAML frontmatter contains only `name` and `description`
+- body stays concise
+- body points to one workflow in `~/.codex/lily-workflows/`
+- no Claude-specific `allowed-tools`, `argument-hint`, or XML-style process tags
+
+### Shortcuts
+
+- `codex-progress` -> `progress-check.md`
+- `codex-recap` -> `recap.md`
+- `codex-next` -> `next-phase.md`
+- `codex-plan` -> `create-plan.md`
+- `codex-deep-plan` -> `create-plan-deep.md`
+- `codex-plan-check` -> `plan-check.md`
+- `codex-execute` -> `execute-plan.md`
+- `codex-verify` -> `verify-work.md`
+- `codex-commit` -> `git-checkpoint.md`
+- `codex-quick` -> `quick.md`
+- `codex-backlog` -> `backlog.md`
+- `codex-debug` -> `debug.md`
+- `codex-review` -> `review.md`
+- `codex-ship` -> `ship.md`
+- `codex-bootstrap` -> `bootstrap-project.md`
+- `codex-adopt` -> `adopt-existing-project.md`
+
+### Install
+
+```bash
+./install-codex.sh
+```
+
+The installer copies:
+
+- `workflows/` -> `~/.codex/lily-workflows/`
+- `adapters/codex/skills/` -> `~/.codex/skills/`
+
+It removes old `codex-*` Lily workflow skills before reinstalling current versions. It does not remove Codex system skills under `.system`.
+
+## Validation Status
 
 Current validation passed:
 
-- 16 source skills found
+- 16 Claude Code source skills
+- 16 Claude Code installed skills
+- 16 Codex source skills
+- 16 Codex installed skills
 - every skill is folder-based
-- every skill has frontmatter
 - every skill references an existing workflow file
-- no stale flat Claude Code skill files are installed
+- no stale flat Claude Code Lily skill files are installed
+- Codex frontmatter contains only `name` and `description`
+
+## Next Adapter
+
+Gemini is the next likely adapter.
+
+Expected shape is still unknown. Inspect Gemini's local instruction or extension format before creating Gemini skill wrappers.
