@@ -11,7 +11,7 @@ The project is a personal workflow system. It is public as a reference and idea 
 ```text
 workflows/ = reusable instructions
 adapters/ = AI-specific shortcuts
-templates/ = starter project files
+templates/ = optional starter project files
 project .planning/ = project-specific truth
 ```
 
@@ -30,7 +30,7 @@ The goal is not to copy GSD completely. The goal is to keep useful patterns whil
 
 - `workflows/` is the shared workflow layer.
 - `adapters/` contains AI-specific wrappers.
-- `templates/` contains project-level starter files.
+- `templates/` contains optional project-level starter files. Bootstrap workflows can create project files directly without copying these templates.
 - Project `.planning/` folders contain project-specific truth.
 
 ## File Layers
@@ -325,10 +325,10 @@ Built so far:
 - all 16 Codex skill wrappers
 - Codex install script
 - starter Gemini adapter
-- starter project templates
+- optional starter project templates
 
 Possible future work:
 
 - richer Gemini adapter
-- fuller project templates for `.planning/`
+- fuller optional project templates for `.planning/`
 - optional install/sync commands for more AI tools

@@ -55,7 +55,7 @@ workflows/                 Shared workflow instructions any AI can read
 adapters/claude-code/      Claude Code skill wrappers and notes
 adapters/codex/            Codex skill wrappers and AGENTS.md adapter
 adapters/gemini/           Starter Gemini adapter
-templates/                 Project-level starter instruction files
+templates/                 Optional project-level starter instruction files
 USER-GENERAL-GUIDE.md      Full system guide and operating model
 SKILLS-SUMMARY.md          Skill adapter map and validation summary
 install-claude-code.sh     Install workflows and cc-* skills locally
@@ -132,7 +132,7 @@ Codex:
 ./install-codex.sh
 ```
 
-These scripts copy shared workflows and AI-specific skill wrappers into local runtime folders. They do not install project `.planning/` files.
+These scripts copy shared workflows and AI-specific skill wrappers into local runtime folders. They do not install project `.planning/` files. The files in `templates/` are optional references; `cc-bootstrap` and `codex-bootstrap` can create project files directly from the bootstrap workflow without copying templates.
 
 ## Project Memory
 
