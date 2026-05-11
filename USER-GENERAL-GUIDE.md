@@ -2,13 +2,25 @@
 
 ## Purpose
 
-This system helps AI continue software projects across sessions by storing project context in files instead of relying on chat history.
+This system helps AI coding agents continue software projects across sessions by storing project context in files instead of relying on chat history.
 
-The goal is not to copy GSD completely. The goal is to keep the useful parts:
+The project is a personal workflow system. It is public as a reference and idea archive, not as a polished open-source framework. Others can copy or adapt the idea, but the repo is primarily shaped around my own daily use.
+
+## Core Idea
+
+```text
+workflows/ = reusable instructions
+adapters/ = AI-specific shortcuts
+templates/ = starter project files
+project .planning/ = project-specific truth
+```
+
+The goal is not to copy GSD completely. The goal is to keep useful patterns while staying smaller and easier to inspect:
 
 - file-based project memory
 - clear progress checks
 - focused plans
+- optional plan checks
 - verification before moving on
 - local git checkpoints
 - reusable AI instructions
@@ -33,7 +45,11 @@ Installed for Claude Code to:
 
 - `~/.claude/lily-workflows/`
 
-These files are AI-agnostic Markdown instructions. Claude, Codex, Gemini, Cursor, or another AI can follow them if pointed at the files.
+Installed for Codex to:
+
+- `~/.codex/lily-workflows/`
+
+These files are AI-agnostic Markdown instructions. Claude Code, Codex, Gemini, Cursor, or another AI can follow them if pointed at the files.
 
 ### AI-Specific Adapters
 
@@ -43,16 +59,17 @@ Stored under:
 - `adapters/codex/`
 - `adapters/gemini/`
 
-Claude Code skills use `SKILL.md` files. Codex and Gemini should use their own instruction format instead of Claude skill wrappers.
+Claude Code and Codex use different skill formats, so their wrappers are separate. Gemini support is only a starter adapter for now.
 
 ### Project-Level Files
 
-Each project should contain:
+Each project can contain:
 
 - `CLAUDE.md` for Claude Code
-- `AGENTS.md` for Codex, if used
+- `AGENTS.md` for Codex
 - `GEMINI.md` for Gemini, if used
 - `.planning/README.md`
+- `.planning/PROJECT.md`
 - `.planning/ROADMAP.md`
 - `.planning/STATE.md`
 - `.planning/DECISIONS.md`
@@ -71,8 +88,8 @@ The `.planning/` folder is the project source of truth.
 - `next-phase.md` — move from completed phase to next phase
 - `create-plan.md` — create one focused implementation plan
 - `create-plan-deep.md` — deeper planning for risky or unclear work
-- `plan-check.md` — review a plan before execution
-- `execute-plan.md` — execute one plan safely
+- `plan-check.md` — optional plan review, saved as `*-PLAN-CHECK.md`
+- `execute-plan.md` — execute one plan safely, reading `*-PLAN-CHECK.md` if present
 - `verify-work.md` — check completed work against acceptance criteria
 - `write-summary.md` — record completed work
 - `git-checkpoint.md` — create local commits after verified work
@@ -90,11 +107,9 @@ The `.planning/` folder is the project source of truth.
 - `review.md` — code review mode
 - `ship.md` — push, PR, or release workflow
 
-## Skill Shortcut Map
+## Claude Code Skill Shortcut Map
 
-Claude Code skill wrappers should stay small. Each skill points to one workflow file.
-
-Planned mappings:
+Claude Code skill wrappers live in `adapters/claude-code/skills/` and install to `~/.claude/skills/`.
 
 - `cc-progress` -> `progress-check.md`
 - `cc-recap` -> `recap.md`
@@ -115,7 +130,7 @@ Planned mappings:
 
 ## Codex Skill Shortcut Map
 
-Codex skill wrappers should stay small. Each skill points to one workflow file installed at `~/.codex/lily-workflows/`.
+Codex skill wrappers live in `adapters/codex/skills/` and install to `~/.codex/skills/`.
 
 - `codex-progress` -> `progress-check.md`
 - `codex-recap` -> `recap.md`
@@ -141,23 +156,26 @@ Typical flow:
 1. Check progress.
 2. Move to the next phase if the current phase is complete.
 3. Create a focused plan.
-4. Check the plan.
+4. Optionally check the plan and persist notes as `*-PLAN-CHECK.md`.
 5. Execute one plan.
 6. Verify the work.
 7. Write or update the summary.
 8. Commit locally.
 9. Recap from files.
 
-Shortcut version after skills exist:
+Claude Code shortcut version:
 
-- `cc-progress`
-- `cc-next`
-- `cc-plan`
-- `cc-plan-check`
-- `cc-execute`
-- `cc-verify`
-- `cc-commit`
-- `cc-recap`
+```text
+cc-progress -> cc-next -> cc-plan -> cc-plan-check -> cc-execute -> cc-verify -> cc-commit -> cc-recap
+```
+
+Codex shortcut version:
+
+```text
+codex-progress -> codex-next -> codex-plan -> codex-plan-check -> codex-execute -> codex-verify -> codex-commit -> codex-recap
+```
+
+`plan-check` is optional. If a `*-PLAN-CHECK.md` file exists, `execute-plan` reads it. If it does not exist, execution continues and notes that no persisted plan check was found.
 
 ## New Project Flow
 
@@ -172,7 +190,7 @@ Purpose:
 
 Expected project files:
 
-- `CLAUDE.md`
+- project instruction file such as `CLAUDE.md` or `AGENTS.md`
 - `.planning/README.md`
 - `.planning/PROJECT.md`
 - `.planning/ROADMAP.md`
@@ -198,7 +216,7 @@ This is for older projects where work happened through chat but context was not 
 
 ## Planning Quality
 
-The Lily system adopts the best lightweight parts of GSD planning:
+The system adopts the best lightweight parts of GSD planning:
 
 - research before planning when needed
 - plan quality checks
@@ -222,13 +240,18 @@ Use deep planning only for:
 Default policy:
 
 - commit locally after verified work
-- do not push unless explicitly requested
+- do not push project work unless explicitly requested
 - keep reusable workflow repo separate from project repos
 - keep project `.planning/` files inside each project repo
 
-This workflow repo may be pushed to GitHub as a private repo.
+This workflow repo can be public as a reference implementation. Do not publish sensitive local files, runtime caches, sessions, auth files, or private project context.
 
-Do not push the entire `~/.claude` folder. It may contain sessions, caches, telemetry, auth state, or machine-specific files.
+Do not push entire local runtime folders such as:
+
+- `~/.claude/`
+- `~/.codex/`
+
+They may contain sessions, caches, telemetry, auth state, or machine-specific files.
 
 ## Runtime Install Policy
 
@@ -239,15 +262,27 @@ Claude Code runtime reads from:
 - `~/.claude/lily-workflows/`
 - `~/.claude/skills/`
 
-To install shared workflows for Claude Code, copy:
+Codex runtime reads from:
 
-- `workflows/` to `~/.claude/lily-workflows/`
+- `~/.codex/lily-workflows/`
+- `~/.codex/skills/`
 
-To install Claude skills, copy:
+Install commands:
 
-- `adapters/claude-code/skills/` to `~/.claude/skills/`
+```bash
+./install-claude-code.sh
+./install-codex.sh
+```
 
-Later this can be automated with an `install.sh` script.
+## Public Sharing Position
+
+This repository is public so others can inspect the idea and adapt it.
+
+It is not intended to be a contribution-focused open-source project. I am not promising stable APIs, formal release management, compatibility guarantees, issue triage, or a public roadmap. The best use of this repo is to understand the file-based workflow pattern and build your own version if it helps.
+
+## License And Reuse
+
+No formal open-source license has been selected yet. Treat this repo as reference material unless a `LICENSE` file is added later. The ideas and structure are shared for learning; the files themselves are my personal working copy and may change without notice.
 
 ## Adopted From GSD
 
@@ -278,24 +313,22 @@ Skipped for now:
 
 Reason:
 
-The Lily system should stay small, readable, and token-efficient.
+The system should stay small, readable, and token-efficient.
 
-## Current Gaps
+## Current State
 
 Built so far:
 
-- shared workflow files ✅
-- all 16 Claude Code skill wrappers ✅
-- Claude Code install script ✅
-- all 16 Codex skill wrappers ✅
-- Codex install script ✅
+- shared workflow files
+- all 16 Claude Code skill wrappers
+- Claude Code install script
+- all 16 Codex skill wrappers
+- Codex install script
 - starter Gemini adapter
 - starter project templates
 
-Still to build next:
+Possible future work:
 
 - richer Gemini adapter
 - fuller project templates for `.planning/`
-- optional install/sync commands for each adapter
-
-The next priority is enriching the Gemini adapter, then working on fuller project templates.
+- optional install/sync commands for more AI tools

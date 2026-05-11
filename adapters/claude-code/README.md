@@ -1,125 +1,65 @@
-# Claude Code Skills For Lily AI Workflows
+# Claude Code Adapter
 
-These are lightweight skill wrappers that point Claude Code to the corresponding Lily workflow files.
+Claude Code uses folder-based skills. This adapter provides `cc-*` shortcuts that delegate to shared workflows installed at `~/.claude/lily-workflows/`.
 
-Each skill corresponds to one workflow file and provides a shortcut to commonly-used operations.
+## Install
 
-## Skills
-
-### Daily Workflows
-
-**Core workflow shortcuts:**
-
-- `cc-progress` → progress check
-- `cc-recap` → project summary
-- `cc-next` → move to next phase
-- `cc-plan` → create focused plan
-- `cc-deep-plan` → create deep plan for risky work
-- `cc-plan-check` → review plan before execution
-- `cc-execute` → execute one plan
-- `cc-verify` → verify completed work
-- `cc-commit` → create local git checkpoint
-
-### Utility Workflows
-
-**Supporting tools:**
-
-- `cc-quick` → small changes without full planning
-- `cc-backlog` → capture ideas and bugs
-- `cc-debug` → structured bug investigation
-- `cc-review` → code or planning review
-- `cc-ship` → publish work (push, PR, release)
-
-### Project Lifecycle
-
-**Project setup and adoption:**
-
-- `cc-bootstrap` → start new project
-- `cc-adopt` → bring existing project into system
-
-## Installation
-
-Copy this folder to Claude Code's skills directory:
+Run from the repo root:
 
 ```bash
-cp -r ~/Build/lily-ai-workflows/adapters/claude-code/skills ~/.claude/skills/lily-workflows
+./install-claude-code.sh
 ```
 
-Or manually copy individual `cc-*.md` files to `~/.claude/skills/`.
+The installer copies:
 
-## Usage
+- `workflows/` -> `~/.claude/lily-workflows/`
+- `adapters/claude-code/skills/` -> `~/.claude/skills/`
 
-In Claude Code, invoke a skill by name:
+It removes old Lily/Claude Code shortcut aliases before reinstalling current `cc-*` skills. It does not remove unrelated skills such as GSD.
 
-```
-cc-progress
-```
+## Skill Structure
 
-Each skill will:
+Each skill is a folder with a `SKILL.md` file:
 
-1. Read the corresponding `*.md` from `~/.claude/lily-workflows/`
-2. Guide you through the workflow step-by-step
-3. Return structured output
-
-## How Skills Work
-
-Each skill file contains:
-
-- **Workflow reference** — pointer to the actual workflow file
-- **Purpose** — what this skill does
-- **When to use** — when to invoke this skill
-- **Typical flow** — high-level steps to follow
-- **Output** — what you'll get back
-
-The skill acts as a shortcut. The real work happens in the workflow files, which are shared across all AI tools.
-
-## File Structure
-
-```
-adapters/claude-code/skills/
-├── README.md (this file)
-├── cc-progress.md
-├── cc-recap.md
-├── cc-next.md
-├── cc-plan.md
-├── cc-deep-plan.md
-├── cc-plan-check.md
-├── cc-execute.md
-├── cc-verify.md
-├── cc-commit.md
-├── cc-quick.md
-├── cc-backlog.md
-├── cc-debug.md
-├── cc-review.md
-├── cc-ship.md
-├── cc-bootstrap.md
-└── cc-adopt.md
+```text
+adapters/claude-code/skills/cc-progress/SKILL.md
+adapters/claude-code/skills/cc-execute/SKILL.md
 ```
 
-## Daily Workflow
+Installed runtime files use the same shape:
 
-Typical project workflow using skills:
+```text
+~/.claude/skills/cc-progress/SKILL.md
+~/.claude/skills/cc-execute/SKILL.md
+```
 
-1. `cc-progress` — check current status
-2. `cc-next` — move to next phase if ready
-3. `cc-plan` — create or `cc-deep-plan` for risky work
-4. `cc-plan-check` — review before executing
-5. `cc-execute` — implement the plan
-6. `cc-verify` — verify work meets acceptance criteria
-7. `cc-commit` — save locally in git
-8. `cc-recap` — summarize for next session
+## Shortcuts
 
-Use `cc-quick`, `cc-debug`, `cc-backlog` as needed for side tasks.
+- `cc-progress` -> progress check
+- `cc-recap` -> project summary from files
+- `cc-next` -> move to next roadmap phase
+- `cc-plan` -> create focused plan
+- `cc-deep-plan` -> create deeper plan for risky work
+- `cc-plan-check` -> optional plan review saved as `*-PLAN-CHECK.md`
+- `cc-execute` -> execute one plan
+- `cc-verify` -> verify completed work
+- `cc-commit` -> create local git checkpoint
+- `cc-quick` -> tiny low-risk change
+- `cc-backlog` -> capture ideas and bugs
+- `cc-debug` -> structured bug investigation
+- `cc-review` -> code or planning review
+- `cc-ship` -> push, PR, or release only when explicitly requested
+- `cc-bootstrap` -> start a new project
+- `cc-adopt` -> adopt an existing project
 
-Only use `cc-ship` when explicitly asked to push/publish.
+## Daily Flow
 
-## Relationship to Workflows
+```text
+cc-progress -> cc-next -> cc-plan -> cc-plan-check -> cc-execute -> cc-verify -> cc-commit -> cc-recap
+```
 
-These skills are **thin wrappers** around workflow files in `~/.claude/lily-workflows/`.
+`cc-plan-check` is optional. If it is run, it writes a `*-PLAN-CHECK.md` file beside the plan. `cc-execute` reads that file when present.
 
-- Skills live in: `~/.claude/skills/`
-- Workflows live in: `~/.claude/lily-workflows/`
+## Scope
 
-When you invoke a skill, Claude Code reads the workflow file and follows it step-by-step.
-
-Skills are for Claude Code convenience. Other AI tools (Codex, Gemini) use their own adapters and can read workflows directly.
+These skills are Claude Code convenience wrappers. The durable process lives in the shared workflow files. Other AI tools should use their own adapters.

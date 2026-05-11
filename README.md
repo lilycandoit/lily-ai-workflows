@@ -1,30 +1,180 @@
 # Lily AI Workflows
 
-Reusable AI workflow instructions for project planning, execution, verification, and git checkpoints.
+A personal AI workflow system for keeping software project context in files instead of chat history.
 
-This repository is the clean version-controlled source for shared AI workflows and AI-specific adapters.
+This repo is shared as a **reference implementation and idea archive**. It is not intended to be a polished open-source framework or a community-maintained product. If the structure helps you, feel free to copy the ideas, fork it, or build your own version with a workflow that fits you better.
 
-## Structure
+## What This Is
 
-- `workflows/` — shared Markdown workflows any AI can read.
-- `adapters/` — AI-specific wrappers and instruction files.
-- `templates/` — project-level starter files.
-- `USER-GENERAL-GUIDE.md` — overview, architecture, workflow map, and future roadmap.
+This system gives AI coding agents a repeatable way to:
 
-## Runtime Install Locations
+- check project progress
+- move between roadmap phases
+- create focused implementation plans
+- optionally check plans before execution
+- execute one plan at a time
+- verify completed work
+- write summaries for future sessions
+- create local git checkpoints
+- capture backlog ideas and debugging notes
 
-Claude Code reads installed files from:
+The main rule is simple:
 
-- `~/.claude/lily-workflows/`
-- `~/.claude/skills/`
+```text
+Reusable workflow instructions live here.
+Project-specific truth lives in each project's .planning/ folder.
+```
 
-This repo stores the clean source copy. Install/sync files from this repo into runtime locations when needed.
+## What This Is Not
+
+This repo is not:
+
+- a general-purpose project management tool
+- a replacement for judgment, review, or testing
+- a full clone of GSD
+- a promise that every workflow fits every project
+- a contribution-driven open-source project
+
+I may keep changing it for my own daily workflow. Public visibility is mainly for sharing the approach.
+
+## Current Support
+
+Implemented adapters:
+
+- Claude Code skills: `cc-*`
+- Codex skills: `codex-*`
+
+Started but not complete:
+
+- Gemini adapter
+
+## Repository Structure
+
+```text
+workflows/                 Shared workflow instructions any AI can read
+adapters/claude-code/      Claude Code skill wrappers and notes
+adapters/codex/            Codex skill wrappers and AGENTS.md adapter
+adapters/gemini/           Starter Gemini adapter
+templates/                 Project-level starter instruction files
+USER-GENERAL-GUIDE.md      Full system guide and operating model
+SKILLS-SUMMARY.md          Skill adapter map and validation summary
+install-claude-code.sh     Install workflows and cc-* skills locally
+install-codex.sh           Install workflows and codex-* skills locally
+```
+
+## Shared Workflows
+
+Core workflows:
+
+- `planning-system.md` — rules and file conventions
+- `progress-check.md` — inspect state and identify next action
+- `recap.md` — summarize project state from files only
+- `next-phase.md` — advance from completed phase to next roadmap phase
+- `create-plan.md` — create one focused implementation plan
+- `create-plan-deep.md` — deeper planning for risky or unclear work
+- `plan-check.md` — optional plan review, persisted as `*-PLAN-CHECK.md`
+- `execute-plan.md` — execute one plan safely
+- `verify-work.md` — check completed work against acceptance criteria
+- `write-summary.md` — write matching `*-SUMMARY.md`
+- `git-checkpoint.md` — local git commits after verified work
+
+Lifecycle and utility workflows:
+
+- `bootstrap-project.md`
+- `adopt-existing-project.md`
+- `quick.md`
+- `backlog.md`
+- `debug.md`
+- `review.md`
+- `ship.md`
+
+## Skill Shortcuts
+
+Claude Code shortcuts use `cc-*`:
+
+```text
+cc-progress
+cc-next
+cc-plan
+cc-plan-check
+cc-execute
+cc-verify
+cc-commit
+cc-recap
+```
+
+Codex shortcuts use `codex-*`:
+
+```text
+codex-progress
+codex-next
+codex-plan
+codex-plan-check
+codex-execute
+codex-verify
+codex-commit
+codex-recap
+```
+
+More shortcuts exist for quick tasks, backlog, debug, review, ship, bootstrap, and adoption. See `SKILLS-SUMMARY.md`.
+
+## Install Locally
+
+Claude Code:
+
+```bash
+./install-claude-code.sh
+```
+
+Codex:
+
+```bash
+./install-codex.sh
+```
+
+These scripts copy shared workflows and AI-specific skill wrappers into local runtime folders. They do not install project `.planning/` files.
 
 ## Project Memory
 
-Project-specific context does not live in this repo.
+Each project should keep its own memory inside that project:
 
-Each software project should keep its own memory in:
+```text
+CLAUDE.md or AGENTS.md
+.planning/README.md
+.planning/PROJECT.md
+.planning/ROADMAP.md
+.planning/STATE.md
+.planning/DECISIONS.md
+.planning/REQUIREMENTS.md
+.planning/phases/
+```
 
-- `CLAUDE.md`, `AGENTS.md`, or AI-specific project instructions
-- `.planning/`
+Project-specific context does not belong in this workflow repo.
+
+## Normal Flow
+
+A typical planned work cycle is:
+
+```text
+progress -> next -> plan -> optional plan-check -> execute -> verify -> commit -> recap
+```
+
+With Claude Code skills:
+
+```text
+cc-progress -> cc-next -> cc-plan -> cc-plan-check -> cc-execute -> cc-verify -> cc-commit -> cc-recap
+```
+
+With Codex skills:
+
+```text
+codex-progress -> codex-next -> codex-plan -> codex-plan-check -> codex-execute -> codex-verify -> codex-commit -> codex-recap
+```
+
+## Public Sharing Note
+
+This repository is public so others can inspect the idea and adapt it. I am not positioning it as a stable package, formal standard, or community roadmap. The best use of this repo is to understand the pattern, then customize your own workflow.
+
+## License And Reuse
+
+No formal open-source license has been selected yet. Treat this repo as reference material unless a `LICENSE` file is added later. The ideas and structure are shared for learning; the files themselves are my personal working copy and may change without notice.
