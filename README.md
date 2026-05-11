@@ -2,7 +2,7 @@
 
 A personal AI workflow system for keeping software project context in files instead of chat history.
 
-This repo is shared as a **reference implementation and idea archive**. It is not intended to be a polished open-source framework or a community-maintained product. If the structure helps you, feel free to copy the ideas, fork it, or build your own version with a workflow that fits you better.
+This repo is shared as a **reference implementation and idea archive**. It is not intended to be a polished open-source framework or a community-maintained product. If the structure helps you, copy the ideas, fork it, or build your own version with a workflow that fits you better.
 
 ## What This Is
 
@@ -36,6 +36,21 @@ This repo is not:
 - a contribution-driven open-source project
 
 I may keep changing it for my own daily workflow. Public visibility is mainly for sharing the approach.
+
+## Naming And Customization
+
+This repo uses the name **Lily AI Workflows** because it is my personal local system. The name is not part of the method.
+
+If you adapt this repo, you can rename everything to match your own system. The reusable pattern is:
+
+```text
+workflows/                 Shared instructions
+adapters/<ai>/             AI-specific wrappers or skills
+templates/                 Optional project starter files
+project .planning/         Project-specific source of truth
+```
+
+You do not need to use `lily-workflows`, `cc-*`, `codex-*`, or `.planning/` exactly. If you rename them, update the matching install scripts, adapter skill files, and project instruction templates consistently.
 
 ## Current Support
 
@@ -151,25 +166,17 @@ CLAUDE.md or AGENTS.md
 
 Project-specific context does not belong in this workflow repo.
 
-## Normal Flow
+## What To Customize
 
-A typical planned work cycle is:
+If you build your own version, review these areas first:
 
-```text
-progress -> next -> plan -> optional plan-check -> execute -> verify -> commit -> recap
-```
-
-With Claude Code skills:
-
-```text
-cc-progress -> cc-next -> cc-plan -> cc-plan-check -> cc-execute -> cc-verify -> cc-commit -> cc-recap
-```
-
-With Codex skills:
-
-```text
-codex-progress -> codex-next -> codex-plan -> codex-plan-check -> codex-execute -> codex-verify -> codex-commit -> codex-recap
-```
+- System name: rename `Lily AI Workflows` and any `lily-workflows` runtime folder references.
+- Workflow content: edit files in `workflows/` to match your planning style, verification habits, and git policy.
+- Skill names: rename `cc-*` or `codex-*` wrappers if you prefer different shortcuts.
+- Install paths: update `install-claude-code.sh` and `install-codex.sh` if your AI tools read from different folders.
+- Project memory shape: keep `.planning/` or choose another folder, then update workflows and templates consistently.
+- Templates: customize `templates/CLAUDE.md`, `templates/AGENTS.md`, `templates/GEMINI.md`, and `templates/planning/README.md` for your own projects.
+- Public/private stance: add a license only if you want others to reuse the files under formal terms.
 
 ## Public Sharing Note
 

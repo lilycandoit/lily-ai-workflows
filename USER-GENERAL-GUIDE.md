@@ -26,6 +26,41 @@ The goal is not to copy GSD completely. The goal is to keep useful patterns whil
 - reusable AI instructions
 - lightweight skill shortcuts
 
+## Naming And Customization
+
+This repo uses the name **Lily AI Workflows** because it is my personal workflow system. That name is not required.
+
+If you adapt this system, you can create your own name and your own runtime folders. For example:
+
+```text
+~/.claude/lily-workflows/     my local Claude Code workflow folder
+~/.codex/lily-workflows/      my local Codex workflow folder
+```
+
+could become:
+
+```text
+~/.claude/my-workflows/
+~/.codex/my-workflows/
+```
+
+The important part is consistency. If you rename the system, update:
+
+- `README.md` and `USER-GENERAL-GUIDE.md`
+- `install-claude-code.sh`
+- `install-codex.sh`
+- skill wrapper references in `adapters/claude-code/skills/`
+- skill wrapper references in `adapters/codex/skills/`
+- project templates in `templates/`
+- any project instruction file that points to the workflow folder
+
+You can also rename the shortcut prefixes. This repo uses:
+
+- `cc-*` for Claude Code
+- `codex-*` for Codex
+
+Those names are conventions, not requirements. If you rename them, keep the skill folder name, frontmatter name, install script, and documentation aligned.
+
 ## Architecture
 
 - `workflows/` is the shared workflow layer.
@@ -76,7 +111,7 @@ Each project can contain:
 - `.planning/REQUIREMENTS.md`
 - `.planning/phases/`
 
-The `.planning/` folder is the project source of truth.
+The `.planning/` folder is the project source of truth. You can rename this folder in your own system, but then all workflows, templates, and project instructions should use the new name consistently.
 
 ## Workflow Files
 
@@ -149,37 +184,56 @@ Codex skill wrappers live in `adapters/codex/skills/` and install to `~/.codex/s
 - `codex-bootstrap` -> `bootstrap-project.md`
 - `codex-adopt` -> `adopt-existing-project.md`
 
-## Normal Development Flow
+## Common Workflow Patterns
 
-Typical flow:
+There is no mandatory order. The workflows are building blocks. Choose the shortest path that matches the project state.
 
-1. Check progress.
-2. Move to the next phase if the current phase is complete.
-3. Create a focused plan.
-4. Optionally check the plan and persist notes as `*-PLAN-CHECK.md`.
-5. Execute one plan.
-6. Verify the work.
-7. Write or update the summary.
-8. Commit locally.
-9. Recap from files.
+### Ongoing Project
 
-Claude Code shortcut version:
+Use this when `.planning/` already exists and you are continuing work:
 
 ```text
-cc-progress -> cc-next -> cc-plan -> cc-plan-check -> cc-execute -> cc-verify -> cc-commit -> cc-recap
+recap -> progress -> next -> plan -> execute -> verify -> commit
 ```
 
-Codex shortcut version:
+Common variations:
+
+- Use `recap` first when returning after time away or switching AI tools.
+- Use `progress` first when the current state is already familiar.
+- Use `next` when the current phase is complete and the roadmap should advance.
+- Use `plan-check` before execution when the plan is risky, stale, or important.
+- Skip `plan-check` for small, clear plans.
+- Use `commit` only after verified work.
+
+Claude Code examples:
 
 ```text
-codex-progress -> codex-next -> codex-plan -> codex-plan-check -> codex-execute -> codex-verify -> codex-commit -> codex-recap
+cc-recap
+cc-progress
+cc-next
+cc-plan
+cc-plan-check
+cc-execute
+cc-verify
+cc-commit
 ```
 
-`plan-check` is optional. If a `*-PLAN-CHECK.md` file exists, `execute-plan` reads it. If it does not exist, execution continues and notes that no persisted plan check was found.
+Codex examples:
 
-## New Project Flow
+```text
+codex-recap
+codex-progress
+codex-next
+codex-plan
+codex-plan-check
+codex-execute
+codex-verify
+codex-commit
+```
 
-Use `bootstrap-project.md`.
+### Brand New Project
+
+Use `bootstrap-project.md` through `cc-bootstrap` or `codex-bootstrap`.
 
 Purpose:
 
@@ -199,9 +253,11 @@ Expected project files:
 - `.planning/REQUIREMENTS.md`
 - `.planning/phases/`
 
-## Existing Project Adoption Flow
+The files in `templates/` are optional references. Bootstrap can create project files directly from the workflow instructions.
 
-Use `adopt-existing-project.md`.
+### Existing Project Without Planning Files
+
+Use `adopt-existing-project.md` through `cc-adopt` or `codex-adopt`.
 
 Purpose:
 
@@ -213,6 +269,36 @@ Purpose:
 - do not rewrite product code during adoption
 
 This is for older projects where work happened through chat but context was not saved into files.
+
+### Tiny Change
+
+Use `quick.md` through `cc-quick` or `codex-quick`.
+
+Use this for:
+
+- typo fixes
+- small documentation updates
+- simple config edits
+- low-risk changes that do not need a full phase plan
+
+Still verify the change when practical, and commit locally if the work is worth preserving.
+
+### Bug Or Regression
+
+Use `debug.md` through `cc-debug` or `codex-debug`.
+
+Use this when the work needs diagnosis before edits:
+
+- failing tests
+- runtime errors
+- regressions
+- unclear broken behavior
+
+### Shipping
+
+Use `ship.md` through `cc-ship` or `codex-ship` only when explicitly ready to publish.
+
+Default policy is local commits only. Pushing, creating PRs, tagging, or releasing should be an explicit user request.
 
 ## Planning Quality
 
@@ -273,6 +359,8 @@ Install commands:
 ./install-claude-code.sh
 ./install-codex.sh
 ```
+
+If you rename the workflow folder, update both the install scripts and every skill wrapper that points to the old folder.
 
 ## Public Sharing Position
 
