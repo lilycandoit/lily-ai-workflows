@@ -135,16 +135,24 @@ More shortcuts exist for quick tasks, backlog, debug, review, ship, bootstrap, a
 
 ## Install Locally
 
+This repo is the editable source for the workflows. It is useful for reviewing, adjusting, and sharing the workflow files, **but AI tools usually read skills from user-level runtime folders on your machine**.
+
+Therefore, use the installer scripts to copy the current repo workflows into those local runtime folders, like: `~/.claude/` for Claude, or `~/.codex/` for Codex:
+
+Run `chmod +x` once if the installer is not executable yet. Run the installer itself the first time and again whenever you update workflow files in this repo.
+
 Claude Code:
 
 ```bash
-./install-claude-code.sh
+chmod +x install-claude-code.sh # once, first time only
+./install-claude-code.sh.       # when something updated
 ```
 
 Codex:
 
 ```bash
-./install-codex.sh
+chmod +x install-codex.sh # once, first time only
+./install-codex.sh        # when something updated
 ```
 
 These scripts copy shared workflows and AI-specific skill wrappers into local runtime folders. They do not install project `.planning/` files. The files in `templates/` are optional references; `cc-bootstrap` and `codex-bootstrap` can create project files directly from the bootstrap workflow without copying templates.
