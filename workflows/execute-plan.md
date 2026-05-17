@@ -28,7 +28,9 @@ Read:
 
 ## After Execution
 
-Create a matching `*-SUMMARY.md`.
+Create a matching `*-SUMMARY.md` by following `~/.codex/lily-workflows/write-summary.md`.
+
+If the work includes UI, mobile/device flows, auth, external services, uploads, realtime behavior, permissions, persistence, or any behavior that cannot be fully verified by automated checks, include a `Manual Test Guide` in the summary.
 
 Update `.planning/STATE.md`.
 

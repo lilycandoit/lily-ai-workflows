@@ -25,13 +25,15 @@ Check:
 5. persistence or state changes, if relevant
 6. error handling and edge cases
 7. tests, lint, build, or manual checks listed in the plan
+8. whether the matching summary includes a useful `Manual Test Guide` when human verification is required
 
 ## Evidence
 
 Collect evidence such as:
 
 - command outputs summarized briefly
-- manual verification steps completed
+- manual verification steps completed by the AI, if any
+- manual verification steps for the user to run, when human/device/browser testing remains
 - code references for static checks
 - known gaps or skipped checks
 
@@ -54,4 +56,7 @@ Include:
 
 - Do not silently ignore missing verification.
 - If a browser, device, API key, or external service is required and unavailable, mark it as a verification gap.
+- Do not claim manual testing was completed unless it was actually performed in the available environment.
+- If the user says they completed the manual test guide, treat that as user-provided evidence and record it separately from AI-performed verification.
+- If the user intentionally skips this workflow after completing manual tests themselves, that is acceptable; do not imply verification is mandatory for every small change.
 - Do not commit during verification. Use `git-checkpoint.md` after verification passes.
