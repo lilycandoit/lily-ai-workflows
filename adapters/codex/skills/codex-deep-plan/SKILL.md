@@ -7,7 +7,7 @@ description: Create a deeper implementation plan using Lily AI workflows. Use fo
 
 Follow the shared Lily workflow:
 
-`~/.codex/lily-workflows/create-plan-deep.md`
+`~/.codex/custom-workflows/create-plan-deep.md`
 
 Use the current repository's `.planning/` folder as the project source of truth when it exists.
 

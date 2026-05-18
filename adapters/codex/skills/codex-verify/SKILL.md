@@ -7,7 +7,7 @@ description: Verify completed work against PLAN.md acceptance criteria using Lil
 
 Follow the shared Lily workflow:
 
-`~/.codex/lily-workflows/verify-work.md`
+`~/.codex/custom-workflows/verify-work.md`
 
 Use the current repository's `.planning/` folder as the project source of truth when it exists.
 

@@ -1,6 +1,6 @@
 # Claude Code Skills For Lily AI Workflows
 
-These are thin Claude Code skill wrappers. Each skill lives in a folder with a `SKILL.md` file and delegates to one shared workflow in `~/.claude/lily-workflows/`.
+These are thin Claude Code skill wrappers. Each skill lives in a folder with a `SKILL.md` file and delegates to one shared workflow in `~/.claude/custom-workflows/`.
 
 ## Skills
 
@@ -31,5 +31,5 @@ Run from the repo root:
 
 That copies:
 
-- `workflows/` -> `~/.claude/lily-workflows/`
+- `workflows/` -> `~/.claude/custom-workflows/`
 - `adapters/claude-code/skills/` -> `~/.claude/skills/`

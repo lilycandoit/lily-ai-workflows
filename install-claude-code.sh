@@ -3,10 +3,10 @@ set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-mkdir -p "$HOME/.claude/lily-workflows"
+mkdir -p "$HOME/.claude/custom-workflows"
 mkdir -p "$HOME/.claude/skills"
 
-rsync -a "$ROOT/workflows/" "$HOME/.claude/lily-workflows/"
+rsync -a "$ROOT/workflows/" "$HOME/.claude/custom-workflows/"
 
 if [ -d "$ROOT/adapters/claude-code/skills" ]; then
   # Remove obsolete Lily/Claude Code skill aliases from older installs. Keep non-Lily skills such as GSD intact.
@@ -17,7 +17,5 @@ if [ -d "$ROOT/adapters/claude-code/skills" ]; then
 fi
 
 echo "Installed Lily workflows for Claude Code."
-echo "Workflows: $HOME/.claude/lily-workflows"
+echo "Workflows: $HOME/.claude/custom-workflows"
 echo "Skills:    $HOME/.claude/skills"
-
-# execute the script: chmod +x install-claude-code.sh

@@ -1,6 +1,6 @@
 # Claude Code Adapter
 
-Claude Code uses folder-based skills. This adapter provides `cc-*` shortcuts that delegate to shared workflows installed at `~/.claude/lily-workflows/`.
+Claude Code uses folder-based skills. This adapter provides `cc-*` shortcuts that delegate to shared workflows installed at `~/.claude/custom-workflows/`.
 
 ## Install
 
@@ -12,7 +12,7 @@ Run from the repo root:
 
 The installer copies:
 
-- `workflows/` -> `~/.claude/lily-workflows/`
+- `workflows/` -> `~/.claude/custom-workflows/`
 - `adapters/claude-code/skills/` -> `~/.claude/skills/`
 
 It removes old Lily/Claude Code shortcut aliases before reinstalling current `cc-*` skills. It does not remove unrelated skills such as GSD.

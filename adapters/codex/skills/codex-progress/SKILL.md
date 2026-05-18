@@ -7,7 +7,7 @@ description: Check project progress using Lily AI workflows and .planning files.
 
 Follow the shared Lily workflow:
 
-`~/.codex/lily-workflows/progress-check.md`
+`~/.codex/custom-workflows/progress-check.md`
 
 Use the current repository's `.planning/` folder as the project source of truth when it exists.
 

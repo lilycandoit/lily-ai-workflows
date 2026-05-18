@@ -14,7 +14,7 @@ Ship completed work only after explicit user request and preflight checks.
 </objective>
 
 <execution_context>
-@$HOME/.claude/lily-workflows/ship.md
+@$HOME/.claude/custom-workflows/ship.md
 </execution_context>
 
 <context>
@@ -22,7 +22,7 @@ $ARGUMENTS
 </context>
 
 <process>
-Execute the Lily workflow from @$HOME/.claude/lily-workflows/ship.md end-to-end.
+Execute the Lily workflow from @$HOME/.claude/custom-workflows/ship.md end-to-end.
 Use the current repository's `.planning/` files as the project source of truth when they exist.
 Follow the workflow's edit, verification, git, and push policies exactly.
 </process>

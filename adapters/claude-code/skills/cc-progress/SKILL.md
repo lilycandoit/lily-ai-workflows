@@ -13,7 +13,7 @@ Inspect the current project state from files and recommend the next useful actio
 </objective>
 
 <execution_context>
-@$HOME/.claude/lily-workflows/progress-check.md
+@$HOME/.claude/custom-workflows/progress-check.md
 </execution_context>
 
 <context>
@@ -21,7 +21,7 @@ $ARGUMENTS
 </context>
 
 <process>
-Execute the Lily workflow from @$HOME/.claude/lily-workflows/progress-check.md end-to-end.
+Execute the Lily workflow from @$HOME/.claude/custom-workflows/progress-check.md end-to-end.
 Use the current repository's `.planning/` files as the project source of truth when they exist.
 Follow the workflow's edit, verification, git, and push policies exactly.
 </process>

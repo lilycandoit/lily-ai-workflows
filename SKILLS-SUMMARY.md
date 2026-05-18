@@ -28,7 +28,7 @@ adapters/claude-code/skills/<skill-name>/SKILL.md
 ### Runtime Workflow Location
 
 ```text
-~/.claude/lily-workflows/<workflow>.md
+~/.claude/custom-workflows/<workflow>.md
 ```
 
 ### Skill Contract
@@ -37,7 +37,7 @@ Each Claude Code `SKILL.md` includes:
 
 - YAML frontmatter with `name`, `description`, optional `argument-hint`, and `allowed-tools`
 - `<objective>` explaining the shortcut's purpose
-- `<execution_context>` pointing to one file in `~/.claude/lily-workflows/`
+- `<execution_context>` pointing to one file in `~/.claude/custom-workflows/`
 - `<context>` passing `$ARGUMENTS`
 - `<process>` instructing Claude Code to execute the workflow end-to-end
 
@@ -68,7 +68,7 @@ Each Claude Code `SKILL.md` includes:
 
 The installer copies:
 
-- `workflows/` -> `~/.claude/lily-workflows/`
+- `workflows/` -> `~/.claude/custom-workflows/`
 - `adapters/claude-code/skills/` -> `~/.claude/skills/`
 
 It removes obsolete Lily/Claude Code aliases matching `lily-*`, `lily-*.md`, and `cc-*` before reinstalling current `cc-*` skills. It does not remove non-Lily skills such as GSD.
@@ -90,7 +90,7 @@ adapters/codex/skills/<skill-name>/SKILL.md
 ### Runtime Workflow Location
 
 ```text
-~/.codex/lily-workflows/<workflow>.md
+~/.codex/custom-workflows/<workflow>.md
 ```
 
 ### Skill Contract
@@ -100,7 +100,7 @@ Each Codex `SKILL.md` follows Codex skill-creator guidance:
 - folder name matches skill `name`
 - YAML frontmatter contains only `name` and `description`
 - body stays concise
-- body points to one workflow in `~/.codex/lily-workflows/`
+- body points to one workflow in `~/.codex/custom-workflows/`
 - no Claude-specific `allowed-tools`, `argument-hint`, or XML-style process tags
 
 ### Shortcuts
@@ -130,7 +130,7 @@ Each Codex `SKILL.md` follows Codex skill-creator guidance:
 
 The installer copies:
 
-- `workflows/` -> `~/.codex/lily-workflows/`
+- `workflows/` -> `~/.codex/custom-workflows/`
 - `adapters/codex/skills/` -> `~/.codex/skills/`
 
 It removes old `codex-*` Lily workflow skills before reinstalling current versions. It does not remove Codex system skills under `.system`.

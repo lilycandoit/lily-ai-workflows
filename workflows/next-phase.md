@@ -9,7 +9,7 @@ Use this when the current phase is complete and the user wants to continue to th
 Read:
 
 1. project instruction file: `CLAUDE.md`, `AGENTS.md`, or equivalent
-2. `~/.claude/lily-workflows/planning-system.md`, if available
+2. installed `planning-system.md` workflow, if available
 3. `.planning/STATE.md`
 4. `.planning/ROADMAP.md`
 5. `.planning/DECISIONS.md`

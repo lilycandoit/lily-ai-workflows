@@ -7,7 +7,7 @@ description: Review a Lily PLAN.md before execution. Use to check scope, require
 
 Follow the shared Lily workflow:
 
-`~/.codex/lily-workflows/plan-check.md`
+`~/.codex/custom-workflows/plan-check.md`
 
 Use the current repository's `.planning/` folder as the project source of truth when it exists.
 

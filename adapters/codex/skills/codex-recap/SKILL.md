@@ -7,7 +7,7 @@ description: Summarize project state from files only using Lily AI workflows. Us
 
 Follow the shared Lily workflow:
 
-`~/.codex/lily-workflows/recap.md`
+`~/.codex/custom-workflows/recap.md`
 
 Use the current repository's `.planning/` folder as the project source of truth when it exists.
 

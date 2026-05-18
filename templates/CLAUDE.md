@@ -4,7 +4,7 @@ This project uses Lily AI Workflows with Claude Code.
 
 Reusable workflows are installed at:
 
-- `~/.claude/lily-workflows/`
+- `~/.claude/custom-workflows/`
 
 Claude Code skill shortcuts are installed at:
 
@@ -18,7 +18,7 @@ Project-specific source of truth lives in:
 
 Before planning or implementation, read:
 
-1. `~/.claude/lily-workflows/planning-system.md`
+1. `~/.claude/custom-workflows/planning-system.md`
 2. `.planning/STATE.md`
 3. `.planning/ROADMAP.md`
 4. the relevant phase folder under `.planning/phases/`

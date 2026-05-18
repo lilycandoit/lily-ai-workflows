@@ -7,7 +7,7 @@ description: Execute one Lily PLAN.md safely. Use when implementing a planned un
 
 Follow the shared Lily workflow:
 
-`~/.codex/lily-workflows/execute-plan.md`
+`~/.codex/custom-workflows/execute-plan.md`
 
 Use the current repository's `.planning/` folder as the project source of truth when it exists.
 

@@ -33,8 +33,8 @@ This repo uses the name **Lily AI Workflows** because it is my personal workflow
 If you adapt this system, you can create your own name and your own runtime folders. For example:
 
 ```text
-~/.claude/lily-workflows/     my local Claude Code workflow folder
-~/.codex/lily-workflows/      my local Codex workflow folder
+~/.claude/custom-workflows/     my local Claude Code workflow folder
+~/.codex/custom-workflows/      my local Codex workflow folder
 ```
 
 could become:
@@ -78,11 +78,11 @@ Stored in this repo under:
 
 Installed for Claude Code to:
 
-- `~/.claude/lily-workflows/`
+- `~/.claude/custom-workflows/`
 
 Installed for Codex to:
 
-- `~/.codex/lily-workflows/`
+- `~/.codex/custom-workflows/`
 
 These files are AI-agnostic Markdown instructions. Claude Code, Codex, Gemini, Cursor, or another AI can follow them if pointed at the files.
 
@@ -345,12 +345,12 @@ This repo is the clean source.
 
 Claude Code runtime reads from:
 
-- `~/.claude/lily-workflows/`
+- `~/.claude/custom-workflows/`
 - `~/.claude/skills/`
 
 Codex runtime reads from:
 
-- `~/.codex/lily-workflows/`
+- `~/.codex/custom-workflows/`
 - `~/.codex/skills/`
 
 Install commands:

@@ -7,7 +7,7 @@ description: Move from a completed phase to the next phase using Lily AI workflo
 
 Follow the shared Lily workflow:
 
-`~/.codex/lily-workflows/next-phase.md`
+`~/.codex/custom-workflows/next-phase.md`
 
 Use the current repository's `.planning/` folder as the project source of truth when it exists.
 

@@ -7,7 +7,7 @@ description: Investigate and fix bugs using Lily AI workflows. Use for failing t
 
 Follow the shared Lily workflow:
 
-`~/.codex/lily-workflows/debug.md`
+`~/.codex/custom-workflows/debug.md`
 
 Use the current repository's `.planning/` folder as the project source of truth when it exists.
 

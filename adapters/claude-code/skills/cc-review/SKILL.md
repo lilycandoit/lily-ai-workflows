@@ -14,7 +14,7 @@ Provide review findings first, ordered by severity, without editing unless asked
 </objective>
 
 <execution_context>
-@$HOME/.claude/lily-workflows/review.md
+@$HOME/.claude/custom-workflows/review.md
 </execution_context>
 
 <context>
@@ -22,7 +22,7 @@ $ARGUMENTS
 </context>
 
 <process>
-Execute the Lily workflow from @$HOME/.claude/lily-workflows/review.md end-to-end.
+Execute the Lily workflow from @$HOME/.claude/custom-workflows/review.md end-to-end.
 Use the current repository's `.planning/` files as the project source of truth when they exist.
 Follow the workflow's edit, verification, git, and push policies exactly.
 </process>

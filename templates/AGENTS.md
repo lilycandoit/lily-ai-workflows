@@ -4,7 +4,7 @@ This project uses Lily AI Workflows with Codex.
 
 Reusable workflows are installed at:
 
-- `~/.codex/lily-workflows/`
+- `~/.codex/custom-workflows/`
 
 Codex skill shortcuts are installed at:
 
@@ -18,7 +18,7 @@ Project-specific source of truth lives in:
 
 Before planning or implementation, read:
 
-1. `~/.codex/lily-workflows/planning-system.md`
+1. `~/.codex/custom-workflows/planning-system.md`
 2. `.planning/STATE.md`
 3. `.planning/ROADMAP.md`
 4. the relevant phase folder under `.planning/phases/`

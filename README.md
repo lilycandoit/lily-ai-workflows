@@ -50,7 +50,7 @@ templates/                 Optional project starter files
 project .planning/         Project-specific source of truth
 ```
 
-You do not need to use `lily-workflows`, `cc-*`, `codex-*`, or `.planning/` exactly. If you rename them, update the matching install scripts, adapter skill files, and project instruction templates consistently.
+You do not need to use `custom-workflows`, `cc-*`, `codex-*`, or `.planning/` exactly. If you rename them, update the matching install scripts, adapter skill files, and project instruction templates consistently.
 
 ## Current Support
 
@@ -137,7 +137,12 @@ More shortcuts exist for quick tasks, backlog, debug, review, ship, bootstrap, a
 
 This repo is the editable source for the workflows. It is useful for reviewing, adjusting, and sharing the workflow files, **but AI tools usually read skills from user-level runtime folders on your machine**.
 
-Therefore, use the installer scripts to copy the current repo workflows into those local runtime folders, like: `~/.claude/` for Claude, or `~/.codex/` for Codex:
+Therefore, use the installer scripts to copy the current repo workflows into those local runtime folders:
+
+- Claude Code: `workflows/` -> `~/.claude/custom-workflows/`
+- Claude Code skills: `adapters/claude-code/skills/` -> `~/.claude/skills/`
+- Codex: `workflows/` -> `~/.codex/custom-workflows/`
+- Codex skills: `adapters/codex/skills/` -> `~/.codex/skills/`
 
 Run `chmod +x` once if the installer is not executable yet. Run the installer itself the first time and again whenever you update workflow files in this repo.
 
@@ -145,14 +150,14 @@ Claude Code:
 
 ```bash
 chmod +x install-claude-code.sh # once, first time only
-./install-claude-code.sh.       # when something updated
+./install-claude-code.sh        # first time and whenever workflows change
 ```
 
 Codex:
 
 ```bash
 chmod +x install-codex.sh # once, first time only
-./install-codex.sh        # when something updated
+./install-codex.sh        # first time and whenever workflows change
 ```
 
 These scripts copy shared workflows and AI-specific skill wrappers into local runtime folders. They do not install project `.planning/` files. The files in `templates/` are optional references; `cc-bootstrap` and `codex-bootstrap` can create project files directly from the bootstrap workflow without copying templates.
@@ -178,7 +183,7 @@ Project-specific context does not belong in this workflow repo.
 
 If you build your own version, review these areas first:
 
-- System name: rename `Lily AI Workflows` and any `lily-workflows` runtime folder references.
+- System name: rename `Lily AI Workflows` and any `custom-workflows` runtime folder references.
 - Workflow content: edit files in `workflows/` to match your planning style, verification habits, and git policy.
 - Skill names: rename `cc-*` or `codex-*` wrappers if you prefer different shortcuts.
 - Install paths: update `install-claude-code.sh` and `install-codex.sh` if your AI tools read from different folders.

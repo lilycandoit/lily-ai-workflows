@@ -7,7 +7,7 @@ description: Create a local git checkpoint after verified work using Lily AI wor
 
 Follow the shared Lily workflow:
 
-`~/.codex/lily-workflows/git-checkpoint.md`
+`~/.codex/custom-workflows/git-checkpoint.md`
 
 Use the current repository's `.planning/` folder as the project source of truth when it exists.
 

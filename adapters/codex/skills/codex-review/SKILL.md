@@ -7,7 +7,7 @@ description: Review code or planning artifacts using Lily AI workflows. Use for 
 
 Follow the shared Lily workflow:
 
-`~/.codex/lily-workflows/review.md`
+`~/.codex/custom-workflows/review.md`
 
 Use the current repository's `.planning/` folder as the project source of truth when it exists.
 

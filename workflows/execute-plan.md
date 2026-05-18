@@ -28,7 +28,7 @@ Read:
 
 ## After Execution
 
-Create a matching `*-SUMMARY.md` by following `~/.codex/lily-workflows/write-summary.md`.
+Create a matching `*-SUMMARY.md` by following the installed `write-summary.md` workflow.
 
 If the work includes UI, mobile/device flows, auth, external services, uploads, realtime behavior, permissions, persistence, or any behavior that cannot be fully verified by automated checks, include a `Manual Test Guide` in the summary.
 
@@ -38,6 +38,6 @@ Update `.planning/DECISIONS.md` only if a durable decision was made.
 
 ## Git Checkpoint
 
-If the project is a git repository and the completed work is ready to preserve, follow `~/.claude/lily-workflows/git-checkpoint.md`.
+If the project is a git repository and the completed work is ready to preserve, follow the installed `git-checkpoint.md` workflow.
 
 Do not push unless the user explicitly asks.

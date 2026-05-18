@@ -58,7 +58,7 @@ Summarize:
 Use this prompt from inside an existing project:
 
 ```text
-Read `~/.claude/lily-workflows/adopt-existing-project.md`.
+Read the installed `adopt-existing-project.md` workflow.
 
 Adopt this existing project into my Lily planning system. Inspect the repo, create or update `CLAUDE.md` and `.planning/` files, summarize what already exists, identify current architecture, known risks, and suggest the next practical plan. Do not rewrite product code during adoption.
-
+```

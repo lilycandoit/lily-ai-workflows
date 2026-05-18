@@ -7,7 +7,7 @@ description: Bootstrap a brand new project into the Lily planning system. Use to
 
 Follow the shared Lily workflow:
 
-`~/.codex/lily-workflows/bootstrap-project.md`
+`~/.codex/custom-workflows/bootstrap-project.md`
 
 Use the current repository's `.planning/` folder as the project source of truth when it exists.
 

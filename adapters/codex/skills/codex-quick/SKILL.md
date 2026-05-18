@@ -7,7 +7,7 @@ description: Handle tiny low-risk changes using Lily AI workflows without full p
 
 Follow the shared Lily workflow:
 
-`~/.codex/lily-workflows/quick.md`
+`~/.codex/custom-workflows/quick.md`
 
 Use the current repository's `.planning/` folder as the project source of truth when it exists.
 

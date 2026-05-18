@@ -17,7 +17,7 @@ Run deeper research, risk, architecture, and verification passes before writing 
 </objective>
 
 <execution_context>
-@$HOME/.claude/lily-workflows/create-plan-deep.md
+@$HOME/.claude/custom-workflows/create-plan-deep.md
 </execution_context>
 
 <context>
@@ -25,7 +25,7 @@ $ARGUMENTS
 </context>
 
 <process>
-Execute the Lily workflow from @$HOME/.claude/lily-workflows/create-plan-deep.md end-to-end.
+Execute the Lily workflow from @$HOME/.claude/custom-workflows/create-plan-deep.md end-to-end.
 Use the current repository's `.planning/` files as the project source of truth when they exist.
 Follow the workflow's edit, verification, git, and push policies exactly.
 </process>

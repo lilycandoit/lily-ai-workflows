@@ -7,7 +7,7 @@ description: Capture ideas, bugs, seeds, research topics, or future work in .pla
 
 Follow the shared Lily workflow:
 
-`~/.codex/lily-workflows/backlog.md`
+`~/.codex/custom-workflows/backlog.md`
 
 Use the current repository's `.planning/` folder as the project source of truth when it exists.
 
