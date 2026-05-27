@@ -36,6 +36,7 @@ Do not rely on chat history when project files contain the answer.
 - `cc-verify` — verify completed work
 - `cc-commit` — create a local git checkpoint
 - `cc-recap` — summarize project state from files
+- `cc-consult` — strategic consultation before planning or implementation
 
 ## Rules
 

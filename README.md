@@ -92,6 +92,7 @@ Core workflows:
 - `verify-work.md` — check completed work against acceptance criteria
 - `write-summary.md` — write the matching summary file
 - `git-checkpoint.md` — local git commits after verified work
+- `consult.md` — strategic consultation before planning or implementation
 
 Lifecycle and utility workflows:
 
@@ -116,6 +117,7 @@ cc-execute
 cc-verify
 cc-commit
 cc-recap
+cc-consult
 ```
 
 Codex shortcuts use `codex-*`:
@@ -129,9 +131,10 @@ codex-execute
 codex-verify
 codex-commit
 codex-recap
+codex-consult
 ```
 
-More shortcuts exist for quick tasks, backlog, debug, review, ship, bootstrap, and adoption. See `SKILLS-SUMMARY.md`.
+More shortcuts exist for consultation, quick tasks, backlog, debug, review, ship, bootstrap, and adoption. See `SKILLS-SUMMARY.md`.
 
 ## Install Locally
 

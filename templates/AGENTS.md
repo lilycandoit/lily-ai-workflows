@@ -36,6 +36,7 @@ Do not rely on chat history when project files contain the answer.
 - `codex-verify` — verify completed work
 - `codex-commit` — create a local git checkpoint
 - `codex-recap` — summarize project state from files
+- `codex-consult` — strategic consultation before planning or implementation
 
 ## Rules
 

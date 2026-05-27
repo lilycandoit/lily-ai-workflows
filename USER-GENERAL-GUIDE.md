@@ -132,6 +132,7 @@ The `.planning/` folder is the project source of truth. You can rename this fold
 - `verify-work.md` — check completed work against acceptance criteria
 - `write-summary.md` — record completed work
 - `git-checkpoint.md` — create local commits after verified work
+- `consult.md` — strategic consultation before planning or implementation
 
 ### Project Lifecycle Workflows
 
@@ -163,6 +164,7 @@ Claude Code skill wrappers live in `adapters/claude-code/skills/` and install to
 - `cc-backlog` -> `backlog.md`
 - `cc-debug` -> `debug.md`
 - `cc-review` -> `review.md`
+- `cc-consult` -> `consult.md`
 - `cc-ship` -> `ship.md`
 - `cc-bootstrap` -> `bootstrap-project.md`
 - `cc-adopt` -> `adopt-existing-project.md`
@@ -184,6 +186,7 @@ Codex skill wrappers live in `adapters/codex/skills/` and install to `~/.codex/s
 - `codex-backlog` -> `backlog.md`
 - `codex-debug` -> `debug.md`
 - `codex-review` -> `review.md`
+- `codex-consult` -> `consult.md`
 - `codex-ship` -> `ship.md`
 - `codex-bootstrap` -> `bootstrap-project.md`
 - `codex-adopt` -> `adopt-existing-project.md`

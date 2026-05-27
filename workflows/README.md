@@ -49,6 +49,7 @@ Inside each named phase folder, prefer simple files such as `CONTEXT.md`, `PLAN.
 - `verify-work.md` — check completed work against acceptance criteria
 - `write-summary.md` — record completed work
 - `git-checkpoint.md` — create local commits after verified work
+- `consult.md` — strategic consultation before planning or implementation
 
 ## Project Lifecycle Workflows
 
