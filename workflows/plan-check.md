@@ -8,13 +8,13 @@ Use this after creating a plan and before executing it.
 
 Read:
 
-1. target `*-PLAN.md`
+1. target plan file, such as `PLAN.md`, `PLAN-01.md`, or legacy `*-PLAN.md`
 2. `.planning/STATE.md`
 3. `.planning/ROADMAP.md`
 4. `.planning/REQUIREMENTS.md`
 5. `.planning/DECISIONS.md`
 6. files listed in the plan's `read_first` section, if needed to judge feasibility
-7. existing matching `*-PLAN-CHECK.md`, if present
+7. existing matching plan-check file, if present
 
 ## Check
 
@@ -37,8 +37,10 @@ Always write the plan-check result to a file beside the target plan.
 
 Naming rule:
 
-- `.planning/phases/02-popup/02-01-PLAN.md` gets `.planning/phases/02-popup/02-01-PLAN-CHECK.md`
-- `{anything}-PLAN.md` gets `{anything}-PLAN-CHECK.md`
+- `PLAN.md` gets `PLAN-CHECK.md`
+- `PLAN-01.md` gets `PLAN-01-CHECK.md`
+- `PLAN-02.md` gets `PLAN-02-CHECK.md`
+- legacy `{anything}-PLAN.md` gets `{anything}-PLAN-CHECK.md`
 
 If the file already exists, replace it with the latest check result. Do not append multiple stale reviews.
 
@@ -87,8 +89,8 @@ For failures, list blocking issues and exact changes needed.
 
 ## Rules
 
-- Write or replace the matching `*-PLAN-CHECK.md` during every plan check.
+- Write or replace the matching plan-check file during every plan check.
 - Do not edit the plan unless the user asks.
 - Do not execute the plan.
 - Prefer concrete file and section references.
-- The future executor should treat `*-PLAN-CHECK.md` as required context.
+- The future executor should treat the matching plan-check file as optional but important context.

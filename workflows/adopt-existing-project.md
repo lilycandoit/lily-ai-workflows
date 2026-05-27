@@ -31,6 +31,20 @@ Create or update:
 - `.planning/OPEN-QUESTIONS.md`
 - `.planning/phases/`
 
+If a next phase is identified, create its phase folder using the installed `planning-system.md` phase folder convention:
+
+```text
+.planning/phases/phase{number}-{phase-slug}/
+```
+
+Example:
+
+```text
+.planning/phases/phase1-stabilize-existing-app/
+```
+
+Add `CONTEXT.md` inside that folder with observed facts, assumptions, risks, and recommended first plan direction. Do not create a plan until the next work unit is clear enough to execute.
+
 ## Rules
 
 1. Do not edit product code during adoption.

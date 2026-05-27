@@ -1,4 +1,4 @@
-# Lily Workflows
+# Shared AI Workflows
 
 Reusable AI workflows for software projects.
 
@@ -21,6 +21,20 @@ Each project should contain:
 - `.planning/DECISIONS.md`
 - `.planning/REQUIREMENTS.md`
 - `.planning/phases/`
+
+Preferred phase folders use this format:
+
+```text
+.planning/phases/phase{number}-{phase-slug}/
+```
+
+Example:
+
+```text
+.planning/phases/phase2-authentication-user-roles/
+```
+
+Inside each named phase folder, prefer simple files such as `CONTEXT.md`, `PLAN.md`, `PLAN-CHECK.md`, and `SUMMARY.md`. For multiple plans, use `PLAN-01.md`, `PLAN-01-CHECK.md`, and `SUMMARY-01.md`.
 
 ## Core Daily Workflows
 

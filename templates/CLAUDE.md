@@ -22,7 +22,7 @@ Before planning or implementation, read:
 2. `.planning/STATE.md`
 3. `.planning/ROADMAP.md`
 4. the relevant phase folder under `.planning/phases/`
-5. the target `*-PLAN.md`, if executing work
+5. the target plan file, if executing work
 
 Do not rely on chat history when project files contain the answer.
 
@@ -31,7 +31,7 @@ Do not rely on chat history when project files contain the answer.
 - `cc-progress` — check current project state
 - `cc-next` — move to the next phase when ready
 - `cc-plan` — create a focused plan
-- `cc-plan-check` — optional plan review saved as `*-PLAN-CHECK.md`
+- `cc-plan-check` — optional plan review saved beside the plan
 - `cc-execute` — execute one plan
 - `cc-verify` — verify completed work
 - `cc-commit` — create a local git checkpoint
@@ -41,7 +41,7 @@ Do not rely on chat history when project files contain the answer.
 
 - Keep project memory in `.planning/`.
 - Execute one plan at a time.
-- Treat `*-PLAN-CHECK.md` as optional context; if present, read it before execution.
-- Write a matching `*-SUMMARY.md` after completing a plan.
-- Update `.planning/STATE.md` after meaningful progress.
+- Treat the matching plan-check file as optional context; if present, read it before execution.
+- Write the matching summary file after completing a plan.
+- Update `.planning/STATE.md` after meaningful progress using the installed planning-system State File Convention. Keep current phase folder, phase title, current plan, status, resume file, blockers, and next action explicit.
 - Do not push unless explicitly asked.

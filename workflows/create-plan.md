@@ -6,13 +6,42 @@ Goal: create one focused implementation plan.
 
 Read:
 
-1. `CLAUDE.md`
-2. `.planning/STATE.md`
-3. `.planning/ROADMAP.md`
-4. `.planning/REQUIREMENTS.md`
-5. `.planning/DECISIONS.md`
-6. relevant phase context
-7. recent summaries from the same phase
+1. project instruction file: `CLAUDE.md`, `AGENTS.md`, or equivalent
+2. installed `planning-system.md` workflow, if available
+3. `.planning/STATE.md`
+4. `.planning/ROADMAP.md`
+5. `.planning/REQUIREMENTS.md`
+6. `.planning/DECISIONS.md`
+7. relevant phase `CONTEXT.md`
+8. recent summaries from the same phase
+
+## Phase Location
+
+Create the plan inside the current phase folder under `.planning/phases/`.
+
+Preferred folder format:
+
+```text
+.planning/phases/phase{number}-{phase-slug}/
+```
+
+Example:
+
+```text
+.planning/phases/phase2-authentication-user-roles/PLAN.md
+```
+
+If the phase folder does not exist, create it from the current roadmap phase title using the `planning-system.md` phase folder convention.
+
+After creating the plan, update `.planning/STATE.md` using the installed `planning-system.md` State File Convention. Set current phase folder, phase title, current plan, current plan title, status `planned`, resume file, last updated, blockers, and next action.
+
+## Plan File Naming
+
+Prefer simple file names inside named phase folders:
+
+- use `PLAN.md` for the first or only plan in a phase
+- use `PLAN-01.md`, `PLAN-02.md`, etc. when the phase has multiple plans
+- keep legacy file names if the project already uses a different convention
 
 ## Plan Rules
 
@@ -29,7 +58,7 @@ A good plan should be:
 
 Use this structure:
 
-# Plan {phase}-{plan}: {title}
+# Plan {phase}: {title}
 
 <objective>
 What this plan achieves.

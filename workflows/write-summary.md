@@ -4,13 +4,18 @@ Goal: record completed work so future AI sessions can continue without relying o
 
 ## Summary File
 
-For each completed plan:
+For each completed plan, create the matching summary beside the plan.
 
-- `01-02-PLAN.md` gets `01-02-SUMMARY.md`
+Naming rule:
+
+- `PLAN.md` gets `SUMMARY.md`
+- `PLAN-01.md` gets `SUMMARY-01.md`
+- `PLAN-02.md` gets `SUMMARY-02.md`
+- legacy `01-02-PLAN.md` gets `01-02-SUMMARY.md`
 
 ## Summary Format
 
-# Summary {phase}-{plan}: {title}
+# Summary {phase}: {title}
 
 ## Completed
 

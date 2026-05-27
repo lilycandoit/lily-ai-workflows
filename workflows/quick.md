@@ -30,7 +30,7 @@ If the task is larger than expected, stop and recommend `create-plan.md`.
 1. inspect relevant files
 2. make the minimal change
 3. verify with the cheapest reliable check
-4. update `.planning/STATE.md` or `.planning/DECISIONS.md` only if useful
+4. update `.planning/STATE.md` only if the current phase, current plan, status, resume file, blockers, or next action changed; use the installed `planning-system.md` State File Convention
 5. use `git-checkpoint.md` if the user wants a local commit
 
 ## Output

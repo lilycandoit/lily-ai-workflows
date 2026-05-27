@@ -111,6 +111,10 @@ Each project can contain:
 - `.planning/REQUIREMENTS.md`
 - `.planning/phases/`
 
+Preferred phase folders use `phase{number}-{phase-slug}`, for example `phase2-authentication-user-roles`. Inside each named phase folder, use simple files such as `CONTEXT.md`, `PLAN.md`, `PLAN-CHECK.md`, and `SUMMARY.md`. For multiple plans, use `PLAN-01.md`, `PLAN-01-CHECK.md`, and `SUMMARY-01.md`.
+
+`STATE.md` should always include current phase folder, phase title, current plan, status, resume file, blockers, and next action.
+
 The `.planning/` folder is the project source of truth. You can rename this folder in your own system, but then all workflows, templates, and project instructions should use the new name consistently.
 
 ## Workflow Files
@@ -123,8 +127,8 @@ The `.planning/` folder is the project source of truth. You can rename this fold
 - `next-phase.md` — move from completed phase to next phase
 - `create-plan.md` — create one focused implementation plan
 - `create-plan-deep.md` — deeper planning for risky or unclear work
-- `plan-check.md` — optional plan review, saved as `*-PLAN-CHECK.md`
-- `execute-plan.md` — execute one plan safely, reading `*-PLAN-CHECK.md` if present
+- `plan-check.md` — optional plan review, saved beside the plan as `PLAN-CHECK.md` or matching legacy name
+- `execute-plan.md` — execute one plan safely, reading the matching plan-check file if present
 - `verify-work.md` — check completed work against acceptance criteria
 - `write-summary.md` — record completed work
 - `git-checkpoint.md` — create local commits after verified work

@@ -9,13 +9,36 @@ Use this instead of `create-plan.md` when the work has meaningful architecture, 
 Read:
 
 1. project instruction file: `CLAUDE.md`, `AGENTS.md`, or equivalent
-2. `.planning/STATE.md`
-3. `.planning/ROADMAP.md`
-4. `.planning/REQUIREMENTS.md`
-5. `.planning/DECISIONS.md`
-6. relevant phase context
-7. recent summaries from related phases
-8. relevant source files and tests
+2. installed `planning-system.md` workflow, if available
+3. `.planning/STATE.md`
+4. `.planning/ROADMAP.md`
+5. `.planning/REQUIREMENTS.md`
+6. `.planning/DECISIONS.md`
+7. relevant phase `CONTEXT.md`
+8. recent summaries from related phases
+9. relevant source files and tests
+
+## Phase Location
+
+Create plans inside the current phase folder under `.planning/phases/`.
+
+Preferred folder format:
+
+```text
+.planning/phases/phase{number}-{phase-slug}/
+```
+
+Prefer simple plan file names inside the named folder:
+
+```text
+PLAN.md
+PLAN-01.md
+PLAN-02.md
+```
+
+Keep legacy file names if the project already uses another convention.
+
+After creating the plan, update `.planning/STATE.md` using the installed `planning-system.md` State File Convention. Set current phase folder, phase title, current plan, current plan title, status `planned`, resume file, last updated, blockers, and next action.
 
 ## Research Passes
 
@@ -45,7 +68,7 @@ If no automated verification exists, document the manual verification path and w
 
 ## Draft Plan
 
-Create one or more focused `*-PLAN.md` files. Prefer one plan unless the work is clearly too large for one session.
+Create one or more focused plan files. Prefer one plan unless the work is clearly too large for one session.
 
 Each plan must include:
 

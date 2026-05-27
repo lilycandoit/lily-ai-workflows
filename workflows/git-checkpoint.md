@@ -15,7 +15,7 @@ Do not push unless the user explicitly asks.
 Create a commit after:
 
 1. completing one implementation plan
-2. writing or updating the matching `*-SUMMARY.md`
+2. writing or updating the matching summary file
 3. updating `.planning/STATE.md`
 4. updating `.planning/DECISIONS.md` if durable decisions changed
 5. running available verification
@@ -48,7 +48,7 @@ Prefer one atomic commit per completed plan.
 Include files directly related to the completed unit of work:
 
 - source files changed for the plan
-- matching `*-SUMMARY.md`
+- matching summary file
 - `.planning/STATE.md`
 - `.planning/DECISIONS.md` only if durable decisions changed
 - `.planning/ROADMAP.md` only if progress, phase status, or scope changed
@@ -71,7 +71,7 @@ Examples:
     feat(01-01): add MV3 extension foundation
     feat(01-02): add options page CRUD
     fix(02-03): handle empty prompt results
-    docs(phase-1): summarize options page CRUD
+    docs(phase1-foundation): summarize options page CRUD
     chore(planning): adopt Lily workflow
 
 Use:

@@ -14,8 +14,8 @@ Read, if present:
 4. `.planning/STATE.md`
 5. `.planning/ROADMAP.md`
 6. `.planning/DECISIONS.md`
-7. latest 2-4 `*-SUMMARY.md` files
-8. current phase `*-CONTEXT.md` and active `*-PLAN.md`, if any
+7. latest 2-4 summary files
+8. current phase `CONTEXT.md` and active plan file, if any
 
 Do not treat chat history as source of truth when project files answer the question.
 

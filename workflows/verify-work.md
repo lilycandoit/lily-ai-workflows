@@ -8,11 +8,22 @@ Use this after execution and before final checkpoint or phase advancement.
 
 Read:
 
-1. target `*-PLAN.md`
-2. matching `*-SUMMARY.md`, if present
+1. target plan file, such as `PLAN.md`, `PLAN-01.md`, or legacy `*-PLAN.md`
+2. matching summary file, if present
 3. `.planning/STATE.md`
 4. changed files
 5. relevant tests or verification instructions
+
+## Matching Files
+
+Preferred named phase folder examples:
+
+- `PLAN.md` matches `SUMMARY.md`
+- `PLAN-01.md` matches `SUMMARY-01.md`
+
+Legacy example:
+
+- `01-01-PLAN.md` matches `01-01-SUMMARY.md`
 
 ## Verify
 

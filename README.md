@@ -87,10 +87,10 @@ Core workflows:
 - `next-phase.md` — advance from completed phase to next roadmap phase
 - `create-plan.md` — create one focused implementation plan
 - `create-plan-deep.md` — deeper planning for risky or unclear work
-- `plan-check.md` — optional plan review, persisted as `*-PLAN-CHECK.md`
+- `plan-check.md` — optional plan review, persisted beside the plan
 - `execute-plan.md` — execute one plan safely
 - `verify-work.md` — check completed work against acceptance criteria
-- `write-summary.md` — write matching `*-SUMMARY.md`
+- `write-summary.md` — write the matching summary file
 - `git-checkpoint.md` — local git commits after verified work
 
 Lifecycle and utility workflows:
@@ -175,7 +175,21 @@ CLAUDE.md or AGENTS.md
 .planning/DECISIONS.md
 .planning/REQUIREMENTS.md
 .planning/phases/
+  phase1-foundation/
+    CONTEXT.md
+    PLAN.md
+    PLAN-CHECK.md
+    SUMMARY.md
+  phase2-authentication-user-roles/
+    CONTEXT.md
+    PLAN-01.md
+    PLAN-01-CHECK.md
+    SUMMARY-01.md
 ```
+
+Use `phase{number}-{phase-slug}` for phase folders. Derive the slug from the roadmap phase title using lowercase words and hyphens. Avoid spaces, ampersands, and punctuation in folder names.
+
+`STATE.md` should always include current phase folder, phase title, current plan, status, resume file, blockers, and next action.
 
 Project-specific context does not belong in this workflow repo.
 
