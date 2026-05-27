@@ -81,7 +81,7 @@ How to know the work is done.
 </acceptance_criteria>
 
 <verification>
-Commands or manual checks to run.
+Commands or manual checks to run. For non-trivial logic, data, auth, storage, API, integration, UI, or permission work, recommend `test-plan.md` before execution.
 </verification>
 
 Do not include unrelated future work.

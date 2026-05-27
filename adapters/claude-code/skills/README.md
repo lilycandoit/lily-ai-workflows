@@ -17,6 +17,9 @@ These are thin Claude Code skill wrappers. Each skill lives in a folder with a `
 - `cc-backlog` -> `backlog.md`
 - `cc-debug` -> `debug.md`
 - `cc-review` -> `review.md`
+- `cc-test-plan` -> `test-plan.md`
+- `cc-add-tests` -> `add-tests.md`
+- `cc-uat` -> `uat.md`
 - `cc-consult` -> `consult.md`
 - `cc-ship` -> `ship.md`
 - `cc-bootstrap` -> `bootstrap-project.md`

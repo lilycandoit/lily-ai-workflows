@@ -50,6 +50,9 @@ Inside each named phase folder, prefer simple files such as `CONTEXT.md`, `PLAN.
 - `write-summary.md` — record completed work
 - `git-checkpoint.md` — create local commits after verified work
 - `consult.md` — strategic consultation before planning or implementation
+- `test-plan.md` — testing strategy before or during implementation
+- `add-tests.md` — add missing automated tests
+- `uat.md` — User Acceptance Testing checklist and results
 
 ## Project Lifecycle Workflows
 

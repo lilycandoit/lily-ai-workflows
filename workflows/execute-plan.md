@@ -11,8 +11,9 @@ Read:
 3. `.planning/STATE.md`
 4. the target plan file, such as `PLAN.md`, `PLAN-01.md`, or legacy `*-PLAN.md`
 5. matching plan-check file, if present. Plan checks are optional, so absence of this file is not a blocker.
-6. files listed in the plan's `read_first` section
-7. relevant existing source files
+6. matching test plan file, if present. Test plans are optional, so absence is not a blocker.
+7. files listed in the plan's `read_first` section
+8. relevant existing source files
 
 ## Matching Files
 
@@ -20,12 +21,12 @@ Use the project's existing naming convention.
 
 Preferred named phase folder examples:
 
-- `PLAN.md` reads optional `PLAN-CHECK.md` and writes `SUMMARY.md`
-- `PLAN-01.md` reads optional `PLAN-01-CHECK.md` and writes `SUMMARY-01.md`
+- `PLAN.md` reads optional `PLAN-CHECK.md` and `TEST-PLAN.md`, then writes `SUMMARY.md`
+- `PLAN-01.md` reads optional `PLAN-01-CHECK.md` and `TEST-PLAN-01.md`, then writes `SUMMARY-01.md`
 
 Legacy examples:
 
-- `01-01-PLAN.md` reads optional `01-01-PLAN-CHECK.md` and writes `01-01-SUMMARY.md`
+- `01-01-PLAN.md` reads optional `01-01-PLAN-CHECK.md` and `01-01-TEST-PLAN.md`, then writes `01-01-SUMMARY.md`
 
 ## Execution Rules
 
@@ -39,6 +40,7 @@ Legacy examples:
 8. If a matching plan-check file has verdict `FAIL`, stop and ask for plan revision before executing.
 9. If the plan is wrong or stale, stop and explain the mismatch.
 10. Apply any `PASS WITH NOTES` executor guidance from the matching plan-check file.
+11. If a matching test plan exists, follow its testing strategy and preserve its documented gaps.
 
 ## After Execution
 

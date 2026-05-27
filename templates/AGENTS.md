@@ -37,6 +37,9 @@ Do not rely on chat history when project files contain the answer.
 - `codex-commit` — create a local git checkpoint
 - `codex-recap` — summarize project state from files
 - `codex-consult` — strategic consultation before planning or implementation
+- `codex-test-plan` — decide unit, integration, E2E, and manual testing strategy
+- `codex-add-tests` — add missing automated tests
+- `codex-uat` — create or record User Acceptance Testing checks
 
 ## Rules
 

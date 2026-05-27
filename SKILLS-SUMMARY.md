@@ -56,6 +56,9 @@ Each Claude Code `SKILL.md` includes:
 - `cc-backlog` -> `backlog.md`
 - `cc-debug` -> `debug.md`
 - `cc-review` -> `review.md`
+- `cc-test-plan` -> `test-plan.md`
+- `cc-add-tests` -> `add-tests.md`
+- `cc-uat` -> `uat.md`
 - `cc-consult` -> `consult.md`
 - `cc-ship` -> `ship.md`
 - `cc-bootstrap` -> `bootstrap-project.md`
@@ -119,6 +122,9 @@ Each Codex `SKILL.md` follows Codex skill-creator guidance:
 - `codex-backlog` -> `backlog.md`
 - `codex-debug` -> `debug.md`
 - `codex-review` -> `review.md`
+- `codex-test-plan` -> `test-plan.md`
+- `codex-add-tests` -> `add-tests.md`
+- `codex-uat` -> `uat.md`
 - `codex-consult` -> `consult.md`
 - `codex-ship` -> `ship.md`
 - `codex-bootstrap` -> `bootstrap-project.md`
@@ -141,10 +147,10 @@ It removes old `codex-*` Lily workflow skills before reinstalling current versio
 
 Current validation passed:
 
-- 17 Claude Code source skills
-- 16 Claude Code installed skills before reinstall; 17 after running `./install-claude-code.sh`
-- 17 Codex source skills
-- 16 Codex installed skills before reinstall; 17 after running `./install-codex.sh`
+- 20 Claude Code source skills
+- 17 Claude Code installed skills before reinstall; 20 after running `./install-claude-code.sh`
+- 20 Codex source skills
+- 17 Codex installed skills before reinstall; 20 after running `./install-codex.sh`
 - every skill is folder-based
 - every skill references an existing workflow file
 - no stale flat Claude Code Lily skill files are installed

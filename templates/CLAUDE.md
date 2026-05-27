@@ -37,6 +37,9 @@ Do not rely on chat history when project files contain the answer.
 - `cc-commit` — create a local git checkpoint
 - `cc-recap` — summarize project state from files
 - `cc-consult` — strategic consultation before planning or implementation
+- `cc-test-plan` — decide unit, integration, E2E, and manual testing strategy
+- `cc-add-tests` — add missing automated tests
+- `cc-uat` — create or record User Acceptance Testing checks
 
 ## Rules
 

@@ -133,6 +133,9 @@ The `.planning/` folder is the project source of truth. You can rename this fold
 - `write-summary.md` — record completed work
 - `git-checkpoint.md` — create local commits after verified work
 - `consult.md` — strategic consultation before planning or implementation
+- `test-plan.md` — testing strategy before or during implementation
+- `add-tests.md` — add missing automated tests
+- `uat.md` — User Acceptance Testing checklist and results
 
 ### Project Lifecycle Workflows
 
@@ -164,6 +167,9 @@ Claude Code skill wrappers live in `adapters/claude-code/skills/` and install to
 - `cc-backlog` -> `backlog.md`
 - `cc-debug` -> `debug.md`
 - `cc-review` -> `review.md`
+- `cc-test-plan` -> `test-plan.md`
+- `cc-add-tests` -> `add-tests.md`
+- `cc-uat` -> `uat.md`
 - `cc-consult` -> `consult.md`
 - `cc-ship` -> `ship.md`
 - `cc-bootstrap` -> `bootstrap-project.md`
@@ -186,6 +192,9 @@ Codex skill wrappers live in `adapters/codex/skills/` and install to `~/.codex/s
 - `codex-backlog` -> `backlog.md`
 - `codex-debug` -> `debug.md`
 - `codex-review` -> `review.md`
+- `codex-test-plan` -> `test-plan.md`
+- `codex-add-tests` -> `add-tests.md`
+- `codex-uat` -> `uat.md`
 - `codex-consult` -> `consult.md`
 - `codex-ship` -> `ship.md`
 - `codex-bootstrap` -> `bootstrap-project.md`

@@ -12,18 +12,19 @@ Read:
 2. matching summary file, if present
 3. `.planning/STATE.md`
 4. changed files
-5. relevant tests or verification instructions
+5. matching test plan file, if present
+6. relevant tests or verification instructions
 
 ## Matching Files
 
 Preferred named phase folder examples:
 
-- `PLAN.md` matches `SUMMARY.md`
-- `PLAN-01.md` matches `SUMMARY-01.md`
+- `PLAN.md` matches `SUMMARY.md` and may have `TEST-PLAN.md`
+- `PLAN-01.md` matches `SUMMARY-01.md` and may have `TEST-PLAN-01.md`
 
 Legacy example:
 
-- `01-01-PLAN.md` matches `01-01-SUMMARY.md`
+- `01-01-PLAN.md` matches `01-01-SUMMARY.md` and may have `01-01-TEST-PLAN.md`
 
 ## Verify
 
@@ -35,8 +36,10 @@ Check:
 4. user-facing behavior
 5. persistence or state changes, if relevant
 6. error handling and edge cases
-7. tests, lint, build, or manual checks listed in the plan
-8. whether the matching summary includes a useful `Manual Test Guide` when human verification is required
+7. tests, lint, build, or manual checks listed in the plan or matching test plan
+8. whether automated test gaps should route to `add-tests.md`
+9. whether manual or human acceptance gaps should route to `uat.md`
+10. whether the matching summary includes a useful `Manual Test Guide` when human verification is required
 
 ## Evidence
 
@@ -47,6 +50,7 @@ Collect evidence such as:
 - manual verification steps for the user to run, when human/device/browser testing remains
 - code references for static checks
 - known gaps or skipped checks
+- whether `add-tests.md` or `uat.md` should be run next
 
 ## Output
 

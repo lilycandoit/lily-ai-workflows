@@ -93,6 +93,9 @@ Core workflows:
 - `write-summary.md` — write the matching summary file
 - `git-checkpoint.md` — local git commits after verified work
 - `consult.md` — strategic consultation before planning or implementation
+- `test-plan.md` — testing strategy before or during implementation
+- `add-tests.md` — add missing automated tests
+- `uat.md` — User Acceptance Testing checklist and results
 
 Lifecycle and utility workflows:
 
@@ -118,6 +121,9 @@ cc-verify
 cc-commit
 cc-recap
 cc-consult
+cc-test-plan
+cc-add-tests
+cc-uat
 ```
 
 Codex shortcuts use `codex-*`:
@@ -132,9 +138,12 @@ codex-verify
 codex-commit
 codex-recap
 codex-consult
+codex-test-plan
+codex-add-tests
+codex-uat
 ```
 
-More shortcuts exist for consultation, quick tasks, backlog, debug, review, ship, bootstrap, and adoption. See `SKILLS-SUMMARY.md`.
+More shortcuts exist for consultation, testing, quick tasks, backlog, debug, review, ship, bootstrap, and adoption. See `SKILLS-SUMMARY.md`.
 
 ## Install Locally
 
