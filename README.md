@@ -187,19 +187,19 @@ CLAUDE.md or AGENTS.md
 .planning/DECISIONS.md
 .planning/REQUIREMENTS.md
 .planning/phases/
-  phase1-foundation/
+  phase-1-foundation/
     CONTEXT.md
     PLAN.md
     PLAN-CHECK.md
     SUMMARY.md
-  phase2-authentication-user-roles/
+  phase-2-authentication-user-roles/
     CONTEXT.md
     PLAN-01.md
     PLAN-01-CHECK.md
     SUMMARY-01.md
 ```
 
-Use `phase{number}-{phase-slug}` for phase folders. Derive the slug from the roadmap phase title using lowercase words and hyphens. Avoid spaces, ampersands, and punctuation in folder names.
+Use `phase-{number}-{phase-slug}` for phase folders. This makes AI-generated phase artifacts easy to scan in `.planning/`, which is normally gitignored. Derive the slug from the roadmap phase title using lowercase words and hyphens. Avoid spaces, ampersands, and punctuation in folder names.
 
 `STATE.md` should always include current phase folder, phase title, current plan, status, resume file, blockers, and next action.
 

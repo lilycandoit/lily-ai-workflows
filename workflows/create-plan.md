@@ -22,13 +22,13 @@ Create the plan inside the current phase folder under `.planning/phases/`.
 Preferred folder format:
 
 ```text
-.planning/phases/phase{number}-{phase-slug}/
+.planning/phases/phase-{number}-{phase-slug}/
 ```
 
 Example:
 
 ```text
-.planning/phases/phase2-authentication-user-roles/PLAN.md
+.planning/phases/phase-2-authentication-user-roles/PLAN.md
 ```
 
 If the phase folder does not exist, create it from the current roadmap phase title using the `planning-system.md` phase folder convention.

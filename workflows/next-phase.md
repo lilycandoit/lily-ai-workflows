@@ -45,13 +45,13 @@ If the phase is complete:
 Preferred phase folder format:
 
 ```text
-.planning/phases/phase{number}-{phase-slug}/
+.planning/phases/phase-{number}-{phase-slug}/
 ```
 
 Example:
 
 ```text
-.planning/phases/phase2-authentication-user-roles/CONTEXT.md
+.planning/phases/phase-2-authentication-user-roles/CONTEXT.md
 ```
 
 ## Output

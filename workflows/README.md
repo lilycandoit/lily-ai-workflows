@@ -25,16 +25,16 @@ Each project should contain:
 Preferred phase folders use this format:
 
 ```text
-.planning/phases/phase{number}-{phase-slug}/
+.planning/phases/phase-{number}-{phase-slug}/
 ```
 
 Example:
 
 ```text
-.planning/phases/phase2-authentication-user-roles/
+.planning/phases/phase-2-authentication-user-roles/
 ```
 
-Inside each named phase folder, prefer simple files such as `CONTEXT.md`, `PLAN.md`, `PLAN-CHECK.md`, and `SUMMARY.md`. For multiple plans, use `PLAN-01.md`, `PLAN-01-CHECK.md`, and `SUMMARY-01.md`.
+Use the pattern `phase-{number}-{short-summary}` when creating a new phase folder, with a brief lowercase slug that describes the feature or fix. The `.planning/` folder is project memory and is typically gitignored, so the phase folder name should make each AI-generated feature or fix easy to spot at a glance. Inside each named phase folder, prefer simple files such as `CONTEXT.md`, `PLAN.md`, `PLAN-CHECK.md`, and `SUMMARY.md`. For multiple plans, use `PLAN-01.md`, `PLAN-01-CHECK.md`, and `SUMMARY-01.md`.
 
 ## Core Daily Workflows
 

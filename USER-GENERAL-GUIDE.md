@@ -111,7 +111,7 @@ Each project can contain:
 - `.planning/REQUIREMENTS.md`
 - `.planning/phases/`
 
-Preferred phase folders use `phase{number}-{phase-slug}`, for example `phase2-authentication-user-roles`. Inside each named phase folder, use simple files such as `CONTEXT.md`, `PLAN.md`, `PLAN-CHECK.md`, and `SUMMARY.md`. For multiple plans, use `PLAN-01.md`, `PLAN-01-CHECK.md`, and `SUMMARY-01.md`.
+Preferred phase folders use `phase-{number}-{phase-slug}`, for example `phase-2-authentication-user-roles`. These AI-generated folders live in the gitignored `.planning/` area, so the naming pattern should make features and fixes easy to spot at a glance. Inside each named phase folder, use simple files such as `CONTEXT.md`, `PLAN.md`, `PLAN-CHECK.md`, and `SUMMARY.md`. For multiple plans, use `PLAN-01.md`, `PLAN-01-CHECK.md`, and `SUMMARY-01.md`.
 
 `STATE.md` should always include current phase folder, phase title, current plan, status, resume file, blockers, and next action.
 

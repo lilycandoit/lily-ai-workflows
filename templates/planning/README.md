@@ -21,7 +21,7 @@ This folder is the project memory. It stores durable context so AI sessions can 
 
 ## Current Position
 
-- Current phase folder: `.planning/phases/phase2-authentication-user-roles/`
+- Current phase folder: `.planning/phases/phase-2-authentication-user-roles/`
 - Current phase title: Authentication & User Roles
 - Current plan: `PLAN-01.md`
 - Current plan title: Add login session persistence
@@ -30,8 +30,8 @@ This folder is the project memory. It stores durable context so AI sessions can 
 
 ## Resume
 
-- Resume file: `.planning/phases/phase2-authentication-user-roles/PLAN-01.md`
-- Last completed summary: `.planning/phases/phase1-foundation/SUMMARY.md`
+- Resume file: `.planning/phases/phase-2-authentication-user-roles/PLAN-01.md`
+- Last completed summary: `.planning/phases/phase-1-foundation/SUMMARY.md`
 - Last updated: YYYY-MM-DD
 
 ## Blockers
@@ -50,20 +50,34 @@ The goal is that any AI tool can read `STATE.md`, find the right phase folder, a
 Preferred phase folder format:
 
 ```text
-phases/phase{number}-{phase-slug}/
+phases/phase-{number}-{phase-slug}/
 ```
 
 Examples:
 
 ```text
-phases/phase1-foundation/
-phases/phase2-authentication-user-roles/
-phases/phase3-billing-and-subscriptions/
+phases/phase-1-foundation/
+phases/phase-2-authentication-user-roles/
+phases/phase-3-billing-and-subscriptions/
 ```
 
-Create the slug from the roadmap phase title: lowercase, hyphen-separated, no spaces, no `&`, no punctuation.
+Create the slug from the roadmap phase title: lowercase, hyphen-separated, no spaces, no `&`, no punctuation. Keep the folder name stable once created, and keep the `.planning/` directory gitignored so AI-generated phase folders are easy to scan later without cluttering the repo.
 
-Keep the folder name stable once created. Store the human-readable phase title in `ROADMAP.md`, `CONTEXT.md`, plan headings, and summary headings.
+When creating a new phase, use this exact pattern:
+
+```text
+phases/phase-{number}-{short-summary}/
+```
+
+Example:
+
+```text
+phases/phase-2-authentication-user-roles/
+```
+
+The short summary should be a compact description of the phase goal so a directory scan instantly tells you what the work is about.
+
+Store the human-readable phase title in `ROADMAP.md`, `CONTEXT.md`, plan headings, and summary headings.
 
 ## Phase Files
 

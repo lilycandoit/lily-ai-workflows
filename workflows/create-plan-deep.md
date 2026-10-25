@@ -25,7 +25,7 @@ Create plans inside the current phase folder under `.planning/phases/`.
 Preferred folder format:
 
 ```text
-.planning/phases/phase{number}-{phase-slug}/
+.planning/phases/phase-{number}-{phase-slug}/
 ```
 
 Prefer simple plan file names inside the named folder:

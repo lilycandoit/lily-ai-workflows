@@ -48,4 +48,7 @@ Do not rely on chat history when project files contain the answer.
 - Treat the matching plan-check file as optional context; if present, read it before execution.
 - Write the matching summary file after completing a plan.
 - Update `.planning/STATE.md` after meaningful progress using the installed planning-system State File Convention. Keep current phase folder, phase title, current plan, status, resume file, blockers, and next action explicit.
+- Always create new phase folders with the canonical name pattern `phase-{number}-{short-summary}` under `.planning/phases/`.
+- Use lowercase, hyphen-separated words; examples: `phase-1-foundation`, `phase-2-authentication-user-roles`.
+- Keep the folder stable once created and make the slug descriptive enough to spot the feature or fix by directory name alone.
 - Do not push unless explicitly asked.

@@ -71,7 +71,7 @@ Examples:
     feat(01-01): add MV3 extension foundation
     feat(01-02): add options page CRUD
     fix(02-03): handle empty prompt results
-    docs(phase1-foundation): summarize options page CRUD
+    docs(phase-1-foundation): summarize options page CRUD
     chore(planning): adopt Lily workflow
 
 Use:

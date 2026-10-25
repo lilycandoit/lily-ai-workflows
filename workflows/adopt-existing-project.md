@@ -34,14 +34,16 @@ Create or update:
 If a next phase is identified, create its phase folder using the installed `planning-system.md` phase folder convention:
 
 ```text
-.planning/phases/phase{number}-{phase-slug}/
+.planning/phases/phase-{number}-{short-summary}/
 ```
 
 Example:
 
 ```text
-.planning/phases/phase1-stabilize-existing-app/
+.planning/phases/phase-1-stabilize-existing-app/
 ```
+
+The summary slug should be a short, descriptive lowercase phrase that tells you what the phase is about at a glance. Example: `phase-2-authentication-user-roles` or `phase-3-billing-subscriptions`.
 
 Add `CONTEXT.md` inside that folder with observed facts, assumptions, risks, and recommended first plan direction. Do not create a plan until the next work unit is clear enough to execute.
 

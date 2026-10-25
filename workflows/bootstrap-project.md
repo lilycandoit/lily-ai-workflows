@@ -16,14 +16,14 @@ Create:
 When the first roadmap phase is known, create its phase folder using the installed `planning-system.md` phase folder convention:
 
 ```text
-.planning/phases/phase{number}-{phase-slug}/
+.planning/phases/phase-{number}-{phase-slug}/
 ```
 
 Example:
 
 ```text
-.planning/phases/phase1-foundation/
-.planning/phases/phase2-authentication-user-roles/
+.planning/phases/phase-1-foundation/
+.planning/phases/phase-2-authentication-user-roles/
 ```
 
 Inside the first active phase folder, create `CONTEXT.md`. Create `PLAN.md` only when there is enough information for one executable plan.
