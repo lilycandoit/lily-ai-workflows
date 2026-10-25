@@ -67,31 +67,6 @@ Create one folder per roadmap phase under `.planning/phases/`.
 Preferred folder format:
 
 ```text
-.planning/phases/phase-{number}-{phase-slug}/
-```
-
-Examples:
-
-```text
-.planning/phases/phase-1-foundation/
-.planning/phases/phase-2-authentication-user-roles/
-.planning/phases/phase-3-billing-and-subscriptions/
-```
-
-Rules:
-
-1. Derive the phase number and title from `.planning/ROADMAP.md`.
-2. Convert the title to a filesystem-safe slug: lowercase words, hyphens between words, no spaces, no `&`, no punctuation.
-3. Keep the folder name stable once created, even if the display title changes later.
-4. Store the human-readable phase title in `ROADMAP.md`, `CONTEXT.md`, plan headings, and summary headings.
-5. Put these AI-generated phase folders inside the gitignored `.planning/` area so they are easy to scan later and do not clutter the repository.
-6. If an older project already uses folders like `01-foundation` or `phase-1`, continue that project convention unless the user asks to migrate.
-
-## AI Creation Checklist
-
-When creating a new phase folder, AI should follow this exact pattern:
-
-```text
 .planning/phases/phase-{number}-{short-summary}/
 ```
 
@@ -103,7 +78,16 @@ Examples:
 .planning/phases/phase-3-billing-subscriptions/
 ```
 
-Use a short, descriptive slug built from the phase goal; prefer 2-5 lowercase words. The point is that a quick directory scan shows what each phase is about without opening the files.
+Rules:
+
+1. Derive the phase number and title from `.planning/ROADMAP.md`.
+2. Convert the title to a filesystem-safe slug: lowercase words, hyphens between words, no spaces, no `&`, no punctuation.
+3. Keep the folder name stable once created, even if the display title changes later.
+4. Store the human-readable phase title in `ROADMAP.md`, `CONTEXT.md`, plan headings, and summary headings.
+5. Put these AI-generated phase folders inside the gitignored `.planning/` area so they are easy to scan later and do not clutter the repository.
+6. If an older project already uses folders like `01-foundation` or `phase-1`, continue that project convention unless the user asks to migrate.
+
+The short summary should be descriptive enough that a quick directory scan tells you what the phase is about.
 
 ## Phase File Convention
 

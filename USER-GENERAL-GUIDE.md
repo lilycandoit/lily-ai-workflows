@@ -1,438 +1,154 @@
 # Lily AI Workflow System
 
-## Purpose
+A lightweight system for keeping project work in files instead of chat history.
 
-This system helps AI coding agents continue software projects across sessions by storing project context in files instead of relying on chat history.
+This repo is a personal reference for AI-assisted software work. The goal is to make project memory durable, easy to inspect, and easy to resume across sessions.
 
-The project is a personal workflow system. It is public as a reference and idea archive, not as a polished open-source framework. Others can copy or adapt the idea, but the repo is primarily shaped around my own daily use.
+## Core idea
 
-## Core Idea
+The system has three layers:
 
-```text
-workflows/ = reusable instructions
-adapters/ = AI-specific shortcuts
-templates/ = optional starter project files
-project .planning/ = project-specific truth
-```
+1. shared workflow files in `workflows/`
+2. AI-specific shortcut wrappers in `adapters/`
+3. project-specific memory in `.planning/`
 
-The goal is not to copy GSD completely. The goal is to keep useful patterns while staying smaller and easier to inspect:
-
-- file-based project memory
-- clear progress checks
-- focused plans
-- optional plan checks
-- verification before moving on
-- local git checkpoints
-- reusable AI instructions
-- lightweight skill shortcuts
-
-## Naming And Customization
-
-This repo uses the name **Lily AI Workflows** because it is my personal workflow system. That name is not required.
-
-If you adapt this system, you can create your own name and your own runtime folders. For example:
+The main rule is simple:
 
 ```text
-~/.claude/custom-workflows/     my local Claude Code workflow folder
-~/.codex/custom-workflows/      my local Codex workflow folder
+Reusable workflow instructions live in this repo.
+Project truth lives in each project's .planning/ folder.
 ```
 
-could become:
+## Install locally
 
-```text
-~/.claude/my-workflows/
-~/.codex/my-workflows/
-```
+This repo is the editable source of truth. The AI tools usually read the installed runtime copies, not the repo files directly.
 
-The important part is consistency. If you rename the system, update:
-
-- `README.md` and `USER-GENERAL-GUIDE.md`
-- `install-claude-code.sh`
-- `install-codex.sh`
-- skill wrapper references in `adapters/claude-code/skills/`
-- skill wrapper references in `adapters/codex/skills/`
-- project templates in `templates/`
-- any project instruction file that points to the workflow folder
-
-You can also rename the shortcut prefixes. This repo uses:
-
-- `cc-*` for Claude Code
-- `codex-*` for Codex
-
-Those names are conventions, not requirements. If you rename them, keep the skill folder name, frontmatter name, install script, and documentation aligned.
-
-## Architecture
-
-- `workflows/` is the shared workflow layer.
-- `adapters/` contains AI-specific wrappers.
-- `templates/` contains optional project-level starter files. Bootstrap workflows can create project files directly without copying these templates.
-- Project `.planning/` folders contain project-specific truth.
-
-## File Layers
-
-### Shared User-Level Workflows
-
-Stored in this repo under:
-
-- `workflows/`
-
-Installed for Claude Code to:
-
-- `~/.claude/custom-workflows/`
-
-Installed for Codex to:
-
-- `~/.codex/custom-workflows/`
-
-These files are AI-agnostic Markdown instructions. Claude Code, Codex, Gemini, Cursor, or another AI can follow them if pointed at the files.
-
-### AI-Specific Adapters
-
-Stored under:
-
-- `adapters/claude-code/`
-- `adapters/codex/`
-- `adapters/gemini/`
-
-Claude Code and Codex use different skill formats, so their wrappers are separate. Gemini support is only a starter adapter for now.
-
-### Project-Level Files
-
-Each project can contain:
-
-- `CLAUDE.md` for Claude Code
-- `AGENTS.md` for Codex
-- `GEMINI.md` for Gemini, if used
-- `.planning/README.md`
-- `.planning/PROJECT.md`
-- `.planning/ROADMAP.md`
-- `.planning/STATE.md`
-- `.planning/DECISIONS.md`
-- `.planning/REQUIREMENTS.md`
-- `.planning/phases/`
-
-Preferred phase folders use `phase-{number}-{phase-slug}`, for example `phase-2-authentication-user-roles`. These AI-generated folders live in the gitignored `.planning/` area, so the naming pattern should make features and fixes easy to spot at a glance. Inside each named phase folder, use simple files such as `CONTEXT.md`, `PLAN.md`, `PLAN-CHECK.md`, and `SUMMARY.md`. For multiple plans, use `PLAN-01.md`, `PLAN-01-CHECK.md`, and `SUMMARY-01.md`.
-
-`STATE.md` should always include current phase folder, phase title, current plan, status, resume file, blockers, and next action.
-
-The `.planning/` folder is the project source of truth. You can rename this folder in your own system, but then all workflows, templates, and project instructions should use the new name consistently.
-
-## Workflow Files
-
-### Core Daily Workflows
-
-- `planning-system.md` — overall rules and file conventions
-- `progress-check.md` — inspect current state and identify next action
-- `recap.md` — summarize project state from files only
-- `next-phase.md` — move from completed phase to next phase
-- `create-plan.md` — create one focused implementation plan
-- `create-plan-deep.md` — deeper planning for risky or unclear work
-- `plan-check.md` — optional plan review, saved beside the plan as `PLAN-CHECK.md` or matching legacy name
-- `execute-plan.md` — execute one plan safely, reading the matching plan-check file if present
-- `verify-work.md` — check completed work against acceptance criteria
-- `write-summary.md` — record completed work
-- `git-checkpoint.md` — create local commits after verified work
-- `consult.md` — strategic consultation before planning or implementation
-- `test-plan.md` — testing strategy before or during implementation
-- `add-tests.md` — add missing automated tests
-- `uat.md` — User Acceptance Testing checklist and results
-
-### Project Lifecycle Workflows
-
-- `bootstrap-project.md` — start a brand new project
-- `adopt-existing-project.md` — bring an existing project into the planning system
-
-### Utility Workflows
-
-- `quick.md` — handle tiny changes without full phase planning
-- `backlog.md` — capture ideas, seeds, bugs, and future work
-- `debug.md` — structured bug investigation
-- `review.md` — code review mode
-- `ship.md` — push, PR, or release workflow
-
-## Claude Code Skill Shortcut Map
-
-Claude Code skill wrappers live in `adapters/claude-code/skills/` and install to `~/.claude/skills/`.
-
-- `cc-progress` -> `progress-check.md`
-- `cc-recap` -> `recap.md`
-- `cc-next` -> `next-phase.md`
-- `cc-plan` -> `create-plan.md`
-- `cc-deep-plan` -> `create-plan-deep.md`
-- `cc-plan-check` -> `plan-check.md`
-- `cc-execute` -> `execute-plan.md`
-- `cc-verify` -> `verify-work.md`
-- `cc-commit` -> `git-checkpoint.md`
-- `cc-quick` -> `quick.md`
-- `cc-backlog` -> `backlog.md`
-- `cc-debug` -> `debug.md`
-- `cc-review` -> `review.md`
-- `cc-test-plan` -> `test-plan.md`
-- `cc-add-tests` -> `add-tests.md`
-- `cc-uat` -> `uat.md`
-- `cc-consult` -> `consult.md`
-- `cc-ship` -> `ship.md`
-- `cc-bootstrap` -> `bootstrap-project.md`
-- `cc-adopt` -> `adopt-existing-project.md`
-
-## Codex Skill Shortcut Map
-
-Codex skill wrappers live in `adapters/codex/skills/` and install to `~/.codex/skills/`.
-
-- `codex-progress` -> `progress-check.md`
-- `codex-recap` -> `recap.md`
-- `codex-next` -> `next-phase.md`
-- `codex-plan` -> `create-plan.md`
-- `codex-deep-plan` -> `create-plan-deep.md`
-- `codex-plan-check` -> `plan-check.md`
-- `codex-execute` -> `execute-plan.md`
-- `codex-verify` -> `verify-work.md`
-- `codex-commit` -> `git-checkpoint.md`
-- `codex-quick` -> `quick.md`
-- `codex-backlog` -> `backlog.md`
-- `codex-debug` -> `debug.md`
-- `codex-review` -> `review.md`
-- `codex-test-plan` -> `test-plan.md`
-- `codex-add-tests` -> `add-tests.md`
-- `codex-uat` -> `uat.md`
-- `codex-consult` -> `consult.md`
-- `codex-ship` -> `ship.md`
-- `codex-bootstrap` -> `bootstrap-project.md`
-- `codex-adopt` -> `adopt-existing-project.md`
-
-## Common Workflow Patterns
-
-There is no mandatory order. The workflows are building blocks. Choose the shortest path that matches the project state.
-
-### Ongoing Project
-
-Use this when `.planning/` already exists and you are continuing work:
-
-```text
-recap -> progress -> next -> plan -> execute -> verify -> commit
-```
-
-Common variations:
-
-- Use `recap` first when returning after time away or switching AI tools.
-- Use `progress` first when the current state is already familiar.
-- Use `next` when the current phase is complete and the roadmap should advance.
-- Use `plan-check` before execution when the plan is risky, stale, or important.
-- Skip `plan-check` for small, clear plans.
-- Use `commit` only after verified work.
-
-Claude Code examples:
-
-```text
-cc-recap
-cc-progress
-cc-next
-cc-plan
-cc-plan-check
-cc-execute
-cc-verify
-cc-commit
-```
-
-Codex examples:
-
-```text
-codex-recap
-codex-progress
-codex-next
-codex-plan
-codex-plan-check
-codex-execute
-codex-verify
-codex-commit
-```
-
-### Brand New Project
-
-Use `bootstrap-project.md` through `cc-bootstrap` or `codex-bootstrap`.
-
-Purpose:
-
-- create project-level planning files
-- define product intent
-- identify early phases
-- create the first useful plan
-
-Expected project files:
-
-- project instruction file such as `CLAUDE.md` or `AGENTS.md`
-- `.planning/README.md`
-- `.planning/PROJECT.md`
-- `.planning/ROADMAP.md`
-- `.planning/STATE.md`
-- `.planning/DECISIONS.md`
-- `.planning/REQUIREMENTS.md`
-- `.planning/phases/`
-
-The files in `templates/` are optional references. Bootstrap can create project files directly from the workflow instructions.
-
-### Existing Project Without Planning Files
-
-Use `adopt-existing-project.md` through `cc-adopt` or `codex-adopt`.
-
-Purpose:
-
-- inspect the repo
-- document what exists
-- separate facts from assumptions
-- create `.planning/`
-- recommend the safest next plan
-- do not rewrite product code during adoption
-
-This is for older projects where work happened through chat but context was not saved into files.
-
-### Tiny Change
-
-Use `quick.md` through `cc-quick` or `codex-quick`.
-
-Use this for:
-
-- typo fixes
-- small documentation updates
-- simple config edits
-- low-risk changes that do not need a full phase plan
-
-Still verify the change when practical, and commit locally if the work is worth preserving.
-
-### Bug Or Regression
-
-Use `debug.md` through `cc-debug` or `codex-debug`.
-
-Use this when the work needs diagnosis before edits:
-
-- failing tests
-- runtime errors
-- regressions
-- unclear broken behavior
-
-### Shipping
-
-Use `ship.md` through `cc-ship` or `codex-ship` only when explicitly ready to publish.
-
-Default policy is local commits only. Pushing, creating PRs, tagging, or releasing should be an explicit user request.
-
-## Planning Quality
-
-The system adopts the best lightweight parts of GSD planning:
-
-- research before planning when needed
-- plan quality checks
-- verification mapping before implementation
-- explicit acceptance criteria
-- summaries after execution
-
-Default planning should stay lightweight.
-
-Use deep planning only for:
-
-- risky features
-- unclear architecture
-- cross-system changes
-- security-sensitive work
-- large phases
-- work where verification is hard
-
-## Git And GitHub Policy
-
-Default policy:
-
-- commit locally after verified work
-- do not push project work unless explicitly requested
-- keep reusable workflow repo separate from project repos
-- keep project `.planning/` files inside each project repo
-
-This workflow repo can be public as a reference implementation. Do not publish sensitive local files, runtime caches, sessions, auth files, or private project context.
-
-Do not push entire local runtime folders such as:
-
-- `~/.claude/`
-- `~/.codex/`
-
-They may contain sessions, caches, telemetry, auth state, or machine-specific files.
-
-## Runtime Install Policy
-
-This repo is the clean source.
-
-Claude Code runtime reads from:
-
-- `~/.claude/custom-workflows/`
-- `~/.claude/skills/`
-
-Codex runtime reads from:
-
-- `~/.codex/custom-workflows/`
-- `~/.codex/skills/`
-
-Install commands:
+### Claude Code
 
 ```bash
+chmod +x install-claude-code.sh    # run this once on first setup
 ./install-claude-code.sh
+```
+
+This copies:
+
+- `workflows/` -> `~/.claude/custom-workflows/`
+- `adapters/claude-code/skills/` -> `~/.claude/skills/`
+
+### Codex
+
+```bash
+chmod +x install-codex.sh    # run this once on first setup
 ./install-codex.sh
 ```
 
-If you rename the workflow folder, update both the install scripts and every skill wrapper that points to the old folder.
+This copies:
 
-## Public Sharing Position
+- `workflows/` -> `~/.codex/custom-workflows/`
+- `adapters/codex/skills/` -> `~/.codex/skills/`
 
-This repository is public so others can inspect the idea and adapt it.
+After the install, use the skill shortcuts inside your AI tool.
 
-It is not intended to be a contribution-focused open-source project. I am not promising stable APIs, formal release management, compatibility guarantees, issue triage, or a public roadmap. The best use of this repo is to understand the file-based workflow pattern and build your own version if it helps.
+When you update the workflow repo, rerun the install script so the local AI tool picks up the latest version.
 
-## License And Reuse
+## Shortcut and workflow map
 
-No formal open-source license has been selected yet. Treat this repo as reference material unless a `LICENSE` file is added later. The ideas and structure are shared for learning; the files themselves are my personal working copy and may change without notice.
+| Claude Code skill | Codex skill        | Workflow / purpose                                                                      |
+| ----------------- | ------------------ | --------------------------------------------------------------------------------------- |
+| `cc-bootstrap`    | `codex-bootstrap`  | `workflows/bootstrap-project.md` — create a new project structure                       |
+| `cc-adopt`        | `codex-adopt`      | `workflows/adopt-existing-project.md` — bring an existing repo into the planning system |
+| `cc-progress`     | `codex-progress`   | `workflows/progress-check.md` — inspect current project state                           |
+| `cc-next`         | `codex-next`       | `workflows/next-phase.md` — move to the next roadmap phase                              |
+| `cc-plan`         | `codex-plan`       | `workflows/create-plan.md` — create a focused plan                                      |
+| `cc-plan-check`   | `codex-plan-check` | `workflows/plan-check.md` — review a plan before execution                              |
+| `cc-execute`      | `codex-execute`    | `workflows/execute-plan.md` — execute one plan safely                                   |
+| `cc-verify`       | `codex-verify`     | `workflows/verify-work.md` — verify completion against criteria                         |
+| `cc-commit`       | `codex-commit`     | `workflows/git-checkpoint.md` — local git checkpoint after verified work                |
+| `cc-recap`        | `codex-recap`      | `workflows/recap.md` — summarize from files only                                        |
+| `cc-consult`      | `codex-consult`    | `workflows/consult.md` — strategic consultation before work                             |
+| `cc-test-plan`    | `codex-test-plan`  | `workflows/test-plan.md` — decide testing strategy                                      |
+| `cc-add-tests`    | `codex-add-tests`  | `workflows/add-tests.md` — add missing automated tests                                  |
+| `cc-uat`          | `codex-uat`        | `workflows/uat.md` — manual acceptance testing checklist                                |
+| `cc-backlog`      | `codex-backlog`    | `workflows/backlog.md` — capture future ideas or bugs                                   |
+| `cc-debug`        | `codex-debug`      | `workflows/debug.md` — structured bug investigation                                     |
+| `cc-review`       | `codex-review`     | `workflows/review.md` — review code or plan quality                                     |
+| `cc-ship`         | `codex-ship`       | `workflows/ship.md` — publish, PR, or release only when asked                           |
+| `cc-quick`        | `codex-quick`      | `workflows/quick.md` — tiny safe fixes without full planning                            |
 
-## Adopted From GSD
+## Project memory layout
 
-Adopted ideas:
+Each project keeps its own durable context in `.planning/`.
 
-- file-based project memory
-- progress routing
-- phase and plan structure
-- plan summaries
-- local git checkpoints
-- verification before moving on
-- backlog and idea capture
-- optional deeper planning
-- explicit next-step routing
+```text
+CLAUDE.md or AGENTS.md
+.planning/
+  README.md
+  ROADMAP.md
+  STATE.md
+  DECISIONS.md
+  REQUIREMENTS.md
+  phases/
+    phase-1-foundation/
+      CONTEXT.md
+      PLAN.md
+      SUMMARY.md
+    phase-2-authentication-user-roles/
+      CONTEXT.md
+      PLAN-01.md
+      SUMMARY-01.md
+```
 
-## Not Adopted From GSD Yet
+Preferred phase folder naming:
 
-Skipped for now:
+```text
+.planning/phases/phase-{number}-{short-summary}/
+```
 
-- large autonomous manager
-- always-on multi-agent orchestration
-- workstreams
-- workspace management
-- graph and stats systems
-- advanced settings system
-- complex milestone archive system
-- full forensic audit layer
+Examples:
 
-Reason:
+```text
+.planning/phases/phase-1-foundation/
+.planning/phases/phase-2-authentication-user-roles/
+.planning/phases/phase-3-billing-subscriptions/
+```
 
-The system should stay small, readable, and token-efficient.
+The summary part should be a short, lowercase slug that makes the feature or fix recognizable at a glance.
 
-## Current State
+## Project instruction files
 
-Built so far:
+The templates in `templates/` are optional, but useful when starting a project or adopting an existing one.
 
-- shared workflow files
-- all 16 Claude Code skill wrappers
-- Claude Code install script
-- all 16 Codex skill wrappers
-- Codex install script
-- starter Gemini adapter
-- optional starter project templates
+- `templates/CLAUDE.md`
+- `templates/AGENTS.md`
+- `templates/GEMINI.md`
+- `templates/planning/README.md`
 
-Possible future work:
+These project instruction files tell the AI where the source of truth is and which shortcuts to use.
 
-- richer Gemini adapter
-- fuller optional project templates for `.planning/`
-- optional install/sync commands for more AI tools
+## Reuse and customization
+
+This repo is meant to be adapted, not treated as a rigid standard.
+
+You can rename:
+
+- the workflow folder names
+- the runtime folders
+- the skill prefixes like `cc-*` and `codex-*`
+- the project memory folder if needed
+
+The important thing is consistency across:
+
+- install scripts
+- skill wrapper files
+- project instruction files
+- `.planning/` structure
+
+## Public notes
+
+This repo is public as a reference and idea archive. It is not a polished community product, and there is no formal promise of compatibility or release stability.
+
+The value is in the pattern: durable project memory, small plans, explicit progress, and repeatable AI execution.
+
+## License
+
+No formal open-source license has been selected yet. Treat this repo as reference material unless a `LICENSE` file is added later.

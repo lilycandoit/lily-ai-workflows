@@ -2,19 +2,86 @@
 
 Reusable AI workflows for software projects.
 
-These workflows are user-level instructions. They are shared across projects, but each project's `.planning/` folder remains the source of truth.
+These files are the shared process layer. Each project still keeps its own truth in `.planning/`.
 
-## Core Idea
+## What to use
 
-- User-level workflows define how AI should work.
-- Project-level `.planning/` files define what is true for that project.
-- AI-specific adapters and skills are shortcuts only; the workflow files are the durable instructions.
+Use the workflow files directly when reading docs, or use the installed `cc-*` / `codex-*` shortcuts in VS Code.
 
-## Standard Project Files
+## Install locally
 
-Each project should contain:
+From this repo root:
 
-- project instruction file such as `CLAUDE.md`, `AGENTS.md`, or `GEMINI.md`
+```bash
+chmod +x install-claude-code.sh    # once on first setup
+./install-claude-code.sh
+```
+
+or
+
+```bash
+chmod +x install-codex.sh    # once on first setup
+./install-codex.sh
+```
+
+This copies the shared workflows and skill wrappers into your local AI runtime folders so the agent can use them.
+
+## Core workflow groups
+
+### Core daily workflows
+
+- `planning-system.md` — rules and file conventions
+- `progress-check.md` — inspect current state and identify the next action
+- `next-phase.md` — move from a completed phase to the next one
+- `create-plan.md` — create one focused implementation plan
+- `create-plan-deep.md` — deeper planning for risky or unclear work
+- `execute-plan.md` — execute one plan safely
+- `verify-work.md` — validate completion against acceptance criteria
+- `write-summary.md` — record the completed work
+- `git-checkpoint.md` — create local commits after verified work
+
+### Lifecycle workflows
+
+- `bootstrap-project.md` — start a brand new project
+- `adopt-existing-project.md` — bring an existing project into the planning system
+
+### Utility workflows
+
+- `quick.md`
+- `backlog.md`
+- `debug.md`
+- `review.md`
+- `ship.md`
+- `consult.md`
+- `uat.md`
+- `test-plan.md`
+- `add-tests.md`
+
+## Project memory rule
+
+Each project should keep its own durable context in `.planning/`.
+
+Use this phase folder convention:
+
+```text
+.planning/phases/phase-{number}-{short-summary}/
+```
+
+Examples:
+
+```text
+.planning/phases/phase-1-foundation/
+.planning/phases/phase-2-authentication-user-roles/
+.planning/phases/phase-3-billing-subscriptions/
+```
+
+The slug should be short, lowercase, and descriptive enough to scan at a glance.
+
+## Project files
+
+Each project typically contains:
+
+- `CLAUDE.md` or `AGENTS.md`
 - `.planning/README.md`
 - `.planning/ROADMAP.md`
 - `.planning/STATE.md`
@@ -22,47 +89,4 @@ Each project should contain:
 - `.planning/REQUIREMENTS.md`
 - `.planning/phases/`
 
-Preferred phase folders use this format:
-
-```text
-.planning/phases/phase-{number}-{phase-slug}/
-```
-
-Example:
-
-```text
-.planning/phases/phase-2-authentication-user-roles/
-```
-
-Use the pattern `phase-{number}-{short-summary}` when creating a new phase folder, with a brief lowercase slug that describes the feature or fix. The `.planning/` folder is project memory and is typically gitignored, so the phase folder name should make each AI-generated feature or fix easy to spot at a glance. Inside each named phase folder, prefer simple files such as `CONTEXT.md`, `PLAN.md`, `PLAN-CHECK.md`, and `SUMMARY.md`. For multiple plans, use `PLAN-01.md`, `PLAN-01-CHECK.md`, and `SUMMARY-01.md`.
-
-## Core Daily Workflows
-
-- `planning-system.md` — overall rules and file conventions
-- `progress-check.md` — inspect current state and identify next action
-- `recap.md` — summarize project state from files only
-- `next-phase.md` — move from completed phase to next phase
-- `create-plan.md` — create one focused implementation plan
-- `create-plan-deep.md` — deeper planning for risky or unclear work
-- `plan-check.md` — review a plan before execution
-- `execute-plan.md` — execute one plan safely
-- `verify-work.md` — check completed work against acceptance criteria
-- `write-summary.md` — record completed work
-- `git-checkpoint.md` — create local commits after verified work
-- `consult.md` — strategic consultation before planning or implementation
-- `test-plan.md` — testing strategy before or during implementation
-- `add-tests.md` — add missing automated tests
-- `uat.md` — User Acceptance Testing checklist and results
-
-## Project Lifecycle Workflows
-
-- `bootstrap-project.md` — start a brand new project
-- `adopt-existing-project.md` — bring an existing project into the planning system
-
-## Utility Workflows
-
-- `quick.md` — handle tiny changes without full phase planning
-- `backlog.md` — capture ideas, seeds, bugs, and future work
-- `debug.md` — structured bug investigation
-- `review.md` — code review mode
-- `ship.md` — push, PR, or release workflow
+Inside each phase folder, prefer simple files like `CONTEXT.md`, `PLAN.md`, `PLAN-CHECK.md`, and `SUMMARY.md`.
