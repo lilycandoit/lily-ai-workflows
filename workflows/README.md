@@ -56,6 +56,9 @@ This copies the shared workflows and skill wrappers into your local AI runtime f
 - `uat.md`
 - `test-plan.md`
 - `add-tests.md`
+- `ui-audit.md`
+- `ui-polish.md`
+- `ui-redesign.md`
 
 ## Project memory rule
 

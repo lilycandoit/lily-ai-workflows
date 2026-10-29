@@ -106,6 +106,9 @@ This is the main map for daily use.
 | `cc-debug`        | `codex-debug`      | `workflows/debug.md` — structured bug investigation                                     |
 | `cc-review`       | `codex-review`     | `workflows/review.md` — code or planning review                                         |
 | `cc-ship`         | `codex-ship`       | `workflows/ship.md` — push, PR, or release workflow                                     |
+| `cc-ui-audit`     | `codex-ui-audit`   | `workflows/ui-audit.md` — review visual quality, hierarchy, and accessibility          |
+| `cc-ui-polish`    | `codex-ui-polish`  | `workflows/ui-polish.md` — refine a working UI without changing the structure          |
+| `cc-ui-redesign`  | `codex-ui-redesign` | `workflows/ui-redesign.md` — refresh the visual direction with a clearer design system |
 | `cc-quick`        | `codex-quick`      | `workflows/quick.md` — small safe changes without full planning                         |
 
 ## Workflow categories

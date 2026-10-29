@@ -73,6 +73,9 @@ When you update the workflow repo, rerun the install script so the local AI tool
 | `cc-debug`        | `codex-debug`      | `workflows/debug.md` — structured bug investigation                                     |
 | `cc-review`       | `codex-review`     | `workflows/review.md` — review code or plan quality                                     |
 | `cc-ship`         | `codex-ship`       | `workflows/ship.md` — publish, PR, or release only when asked                           |
+| `cc-ui-audit`     | `codex-ui-audit`   | `workflows/ui-audit.md` — review visual quality, hierarchy, and accessibility          |
+| `cc-ui-polish`    | `codex-ui-polish`  | `workflows/ui-polish.md` — refine a working UI without changing the structure          |
+| `cc-ui-redesign`  | `codex-ui-redesign` | `workflows/ui-redesign.md` — refresh the visual direction with a clearer design system |
 | `cc-quick`        | `codex-quick`      | `workflows/quick.md` — tiny safe fixes without full planning                            |
 
 ## Project memory layout
