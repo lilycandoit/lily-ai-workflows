@@ -1,7 +1,7 @@
 ---
 name: cc-ui-audit
-description: "Review a screen or component for visual quality, hierarchy, consistency, and accessibility before redesigning or polishing it."
-argument-hint: "[screen or component]"
+description: 'Review a screen or component for visual quality, hierarchy, consistency, and accessibility.'
+argument-hint: '[screen or component]'
 allowed-tools:
   - Read
   - Bash
@@ -10,7 +10,7 @@ allowed-tools:
 ---
 
 <objective>
-Review the UI with a clear, actionable audit and prioritize fixes before making design changes.
+Audit the UI and prioritize the smallest next improvement before changing anything.
 </objective>
 
 <execution_context>
@@ -24,5 +24,5 @@ $ARGUMENTS
 <process>
 Execute the Lily workflow from @$HOME/.claude/custom-workflows/ui-audit.md end-to-end.
 Use the current repository's `.planning/` files as the project source of truth when they exist.
-Follow the workflow's review, critique, and prioritization rules exactly.
+Follow the workflow's review, prioritization, and accessibility rules exactly.
 </process>

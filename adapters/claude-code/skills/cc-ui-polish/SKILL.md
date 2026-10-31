@@ -1,7 +1,7 @@
 ---
 name: cc-ui-polish
-description: "Refine an existing UI for better spacing, hierarchy, consistency, and polish without changing the overall structure."
-argument-hint: "[screen or component]"
+description: 'Refine an existing UI for spacing, hierarchy, consistency, and visual polish without changing the structure.'
+argument-hint: '[screen or component]'
 allowed-tools:
   - Read
   - Write
@@ -12,7 +12,7 @@ allowed-tools:
 ---
 
 <objective>
-Improve the existing UI with a careful polish pass while preserving the current information architecture and user flow.
+Improve the current UI with a careful polish pass while preserving the existing flow and information architecture.
 </objective>
 
 <execution_context>
